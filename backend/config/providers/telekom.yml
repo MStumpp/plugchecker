@@ -1,0 +1,27 @@
+---
+provider: Telekom
+tariffs:
+- name: Telekom Ladestrom
+  charge_card_id: 335
+  valid_to: 1554076800000
+  prices:
+  - restrictions:
+    - type: region
+      value:
+      - de
+    decomposition:
+    - type: linear
+      price: 0.02
+      dimension: minute
+- name: Telekom Ladestrom
+  charge_card_id: 335
+  valid_from: 1554076800000
+  prices:
+  - restrictions:
+    - type: region
+      value:
+      - de
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute

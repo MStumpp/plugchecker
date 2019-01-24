@@ -1,0 +1,19 @@
+---
+provider: EnBW
+tariffs:
+- name: mobility+
+  charge_card_id: 319
+  valid_to: 1551398400000
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: constant
+      price: 1
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: constant
+      price: 2

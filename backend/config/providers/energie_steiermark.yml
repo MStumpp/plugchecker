@@ -1,0 +1,91 @@
+---
+provider: Energie Steiermark
+tariffs:
+- name: easyFLEX
+  charge_card_id: 276
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7kw
+      - 11kw
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22kw
+    decomposition:
+    - type: linear
+      price: 0.14
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43kw
+      - 50kw
+    decomposition:
+    - type: linear
+      price: 0.44
+      dimension: minute
+- name: superFLAT
+  charge_card_id: 276
+  base_fee_options:
+  - price: 27.9
+    period: month
+  - price: 299
+    period: year
+  prices:
+  - restrictions:
+    - type: provider_customer
+    - type: connector_speed
+      value:
+      - 3.7kw
+      - 11kw
+      - 22kw
+    decomposition:
+    - type: constant
+      price: 0
+- name: superFLAT
+  charge_card_id: 276
+  base_fee:
+  - price: 29.9
+    period: month
+  - price: 329
+    period: year
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7kw
+      - 11kw
+      - 22kw
+    decomposition:
+    - type: constant
+      price: 0
+- name: powerFLAT
+  charge_card_id: 276
+  base_fee:
+  - price: 44.9
+    period: month
+  - price: 499
+    period: year
+  prices:
+  - restrictions:
+    - type: provider_customer
+    decomposition:
+    - type: constant
+      price: 0
+- name: powerFLAT
+  charge_card_id: 276
+  base_fee:
+  - price: 49.9
+    period: month
+  - price: 549
+    period: year
+  prices:
+  - decomposition:
+    - type: constant
+      price: 0
