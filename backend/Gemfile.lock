@@ -51,6 +51,13 @@ GEM
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     json (2.1.0)
+    jsonapi-deserializable (0.2.0)
+    jsonapi-rb (0.5.0)
+      jsonapi-deserializable (~> 0.2.0)
+      jsonapi-serializable (~> 0.3.0)
+    jsonapi-renderer (0.2.0)
+    jsonapi-serializable (0.3.0)
+      jsonapi-renderer (~> 0.2.0)
     method_source (0.9.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -103,6 +110,7 @@ DEPENDENCIES
   dry-validation
   faraday (~> 0.15.4)
   json
+  jsonapi-rb
   pry
   rack-test
   rake

@@ -16,3 +16,4 @@ gem "approvals"
 gem "pry"
 
 gem 'dotenv'
+gem 'jsonapi-rb'

@@ -9,7 +9,6 @@ module ChargeCompare
           MATCHING_RADIUS = 0.01
 
           PROVIDER_NAME = "PlugSurfing"
-          PROVIDER_CHARGE_CARD_ID = "8"
 
           def where(station:)
             ps_station_id = fetch_matching_station_id(station)
@@ -51,7 +50,6 @@ module ChargeCompare
         
             Model::FlexiblePriceTariff.new(
               provider: PROVIDER_NAME,
-              charge_card_id: PROVIDER_CHARGE_CARD_ID,
               valid_at: Time.now.utc, 
               prices: prices.uniq)
           end

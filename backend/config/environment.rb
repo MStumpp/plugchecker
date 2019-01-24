@@ -1,6 +1,5 @@
 require "active_support/all"
 require "ostruct"
-require 'yaml'
 
 $LOAD_PATH.unshift(File.expand_path("..", __dir__))
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
@@ -15,3 +14,7 @@ ChargeCompareService = OpenStruct.new(
     going_electric_api_key: ENV.fetch("GOING_ELECTRIC_KEY")
   )
 )
+
+require "charge_compare/repository/fixed_price_tariff"
+
+ChargeCompare::Repository::FixedPriceTariff.load

@@ -22,15 +22,16 @@ module ChargeCompare
           def store_tariff(tariff, root)
             model = Model::FixedPriceTariff.new(
               name: tariff["name"],
-              charge_card_id: tariff["charge_card_id"].to_s,
               provider: root["provider"],
               valid_to: time_or_nil(tariff["valid_to"]),
               valid_from: time_or_nil(tariff["valid_to"]),
               prices: tariff["prices"].map { |tp| load_tariff_price(tp) }
             )
 
-            store[model.charge_card_id] ||= []
-            store[model.charge_card_id] << model
+            charge_card_id = tariff["charge_card_id"].to_s
+
+            store[charge_card_id] ||= []
+            store[charge_card_id] << model
           end
 
           def load_tariff_price(tariff_price)
@@ -46,10 +47,12 @@ module ChargeCompare
                 Model::RegionRestriction.new(allowed_value: hash["value"])
               when "connector_speed"
                 Model::ConnectorSpeedRestriction.new(allowed_value: hash["value"])
-              when "connector_type"
-                Model::ConnectorTypeRestriction.new(allowed_value: hash["value"])
-              when "provider_customer_restriction"
+              when "connector_energy"
+                Model::ConnectorEnergyRestriction.new(allowed_value: hash["value"])
+              when "provider_customer"
                 Model::ProviderCustomerRestriction.new
+              else
+                raise ArgumentError.new("invalid type #{hash["type"]}")
             end
           end
 
