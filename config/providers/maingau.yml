@@ -1,5 +1,6 @@
 ---
 provider: Maingau Energie
+url: "https://www.maingau-energie.de/e-mobilit%C3%A4t/autostrom-tarif"
 tariffs:
 - name: EinfachStromLaden
   charge_card_id: 274

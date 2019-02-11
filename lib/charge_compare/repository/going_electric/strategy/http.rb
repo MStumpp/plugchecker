@@ -45,8 +45,18 @@ module ChargeCompare
               is_free_charging: st[:cost][:freecharging],
               is_free_parking: st[:cost][:freeparking],
               region: REGION_MAPPING[st[:address][:country]],
-              charge_card_ids: st[:chargecards].map{ |cc| cc[:id].to_s}
+              charge_card_ids: st[:chargecards].map{ |cc| cc[:id].to_s},
+              connectors: st[:chargepoints].map { |cp| parse_connector(cp) },
+              going_electric_url: "https:"+st[:url]
             )
+          end
+
+          def parse_connector(hash)
+            {
+              speed: hash[:power],
+              plug: hash[:type],
+              count: hash[:count]
+            }
           end
         end
       end

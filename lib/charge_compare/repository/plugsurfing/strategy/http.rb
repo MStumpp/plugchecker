@@ -6,7 +6,7 @@ module ChargeCompare
       module Strategy
         class Http
 
-          MATCHING_RADIUS = 0.01
+          MATCHING_RADIUS = 0.1
 
           PROVIDER_NAME = "PlugSurfing"
 
@@ -28,11 +28,12 @@ module ChargeCompare
                 "max-long": lng + MATCHING_RADIUS
               }
             }
-      
+
             hash = request(data)
             sorted_stations = hash[:stations].sort_by do |st|
               (st[:latitude] - lat)**2 + (st[:longitude] - lng)**2 
             end
+
             return if sorted_stations.empty?
             sorted_stations.first[:id]
           end
@@ -42,21 +43,28 @@ module ChargeCompare
         
             prices = hash[:stations].first[:connectors].map do |c|
               restrictions = [
-                Model::ConnectorSpeedRestriction.new(allowed_value: [c[:speed].downcase])
+                Model::ConnectorSpeedRestriction.new(allowed_value: [c[:speed].to_f])
               ]
-
+              
               Model::TariffPrice.new(restrictions: restrictions, decomposition: parse_segments(c[:prices]))
             end
+
+            prices = prices.select { |p| p.decomposition.any? }
         
-            Model::FlexiblePriceTariff.new(
+            model = Model::FlexiblePriceTariff.new(
               provider: PROVIDER_NAME,
+              url: "https://www.plugsurfing.com",
               valid_at: Time.now.utc, 
               prices: prices.uniq)
+
+            model.prices.any? ? [model] : []
           end
 
           def parse_segments(prices)
             segments = []
-            
+
+            return [] unless prices
+
             constant_price =  prices[:"starting-fee"].to_f
             segments << Model::ConstantSegment.new(price: constant_price) if constant_price > 0
 

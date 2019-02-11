@@ -4,6 +4,7 @@ require "api/serializer/v1/station"
 require "api/serializer/v1/fixed_price_tariff"
 require "api/serializer/v1/flexible_price_tariff"
 require "api/serializer/v1/tariff_price"
+require "api/serializer/v1/connector"
 
 module Api
   module ResponseHandler
@@ -15,7 +16,8 @@ module Api
             "ChargeCompare::Model::Station": Api::Serializer::V1::Station,
             "ChargeCompare::Model::FixedPriceTariff": Api::Serializer::V1::FixedPriceTariff,
             "ChargeCompare::Model::FlexiblePriceTariff": Api::Serializer::V1::FlexiblePriceTariff,
-            "ChargeCompare::Model::TariffPrice": Api::Serializer::V1::TariffPrice
+            "ChargeCompare::Model::TariffPrice": Api::Serializer::V1::TariffPrice,
+            "ChargeCompare::Model::Connector": Api::Serializer::V1::Connector
           }
     
           def initialize(resource)
@@ -35,7 +37,10 @@ module Api
           end
     
           def headers
-           { "Content-Type" => "application/json" }
+           { 
+             "Content-Type" => "application/json",
+             "Access-Control-Allow-Origin" => "*"
+            }
           end
     
           def body
@@ -43,7 +48,7 @@ module Api
             serialized_resource = renderer.render(
               resource,
               class: SERIALIZER_MAPPING,
-              include: [:station, :available_tariffs, available_tariffs: [:prices]]
+              include: [:station, :available_tariffs, available_tariffs: [:prices], station: [:connectors]]
             )
     
             JSON.dump(serialized_resource)

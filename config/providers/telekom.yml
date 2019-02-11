@@ -1,5 +1,6 @@
 ---
 provider: Telekom
+url: "https://www.telekom-ladestrom.de/tarif/"
 tariffs:
 - name: Telekom Ladestrom
   charge_card_id: 335

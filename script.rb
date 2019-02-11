@@ -17,7 +17,7 @@ require ::File.expand_path("../config/environment", __FILE__)
 
 require "charge_compare/use_case/station_tariffs/show"
 ChargeCompare::Repository::FixedPriceTariff.load
-res = ChargeCompare::UseCase::StationTariffs::Show.new(station_id: "17144").run
+res = ChargeCompare::UseCase::StationTariffs::Show.new(station_id: "30370").run
 
 # require_relative "./compare_prices_of_station"
 # # require_relative "./plugsurfing"

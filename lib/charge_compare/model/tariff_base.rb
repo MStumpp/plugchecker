@@ -7,6 +7,7 @@ module ChargeCompare
     class TariffBase < Dry::Struct
       
       attribute :provider,   Types::Strict::String
+      attribute :url,   Types::Strict::String
       attribute :prices,     Types::Strict::Array.of(TariffPrice)
     end
   end

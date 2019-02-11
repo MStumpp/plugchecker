@@ -9,7 +9,12 @@ module ChargeCompare
           PROVIDER_CONFIG_LOCATION = "config/providers"
 
           def where(station:)
-            station.charge_card_ids.map { |ccid| store[ccid] }.flatten.compact.uniq
+            tariffs = station.charge_card_ids.map { |ccid| store[ccid] }.flatten.compact.uniq
+          
+            tariffs.select do |t| 
+              (!t.valid_to ||  t.valid_to > Time.now) &&
+              (!t.valid_from || t.valid_from < Time.now)
+            end
           end
 
           def load
@@ -23,8 +28,9 @@ module ChargeCompare
             model = Model::FixedPriceTariff.new(
               name: tariff["name"],
               provider: root["provider"],
+              url: root["url"],
               valid_to: time_or_nil(tariff["valid_to"]),
-              valid_from: time_or_nil(tariff["valid_to"]),
+              valid_from: time_or_nil(tariff["valid_from"]),
               prices: tariff["prices"].map { |tp| load_tariff_price(tp) }
             )
 
@@ -46,7 +52,7 @@ module ChargeCompare
               when "region"
                 Model::RegionRestriction.new(allowed_value: hash["value"])
               when "connector_speed"
-                Model::ConnectorSpeedRestriction.new(allowed_value: hash["value"])
+                Model::ConnectorSpeedRestriction.new(allowed_value: hash["value"].map(&:to_f))
               when "connector_energy"
                 Model::ConnectorEnergyRestriction.new(allowed_value: hash["value"])
               when "provider_customer"

@@ -13,6 +13,11 @@ module Api
         attribute :is_free_parking
         attribute :is_free_charging
         attribute :region
+        attribute :going_electric_url
+
+        has_many :connectors do
+          linkage always: true
+        end
       end
     end
   end

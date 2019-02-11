@@ -44,7 +44,7 @@ module ChargeCompare
             repository = CHARGE_CARD_ID_MAPPING[cc_id]
             next unless repository
             repository.where(station: station)
-          end.compact
+          end.flatten.compact
         end
       end
     end

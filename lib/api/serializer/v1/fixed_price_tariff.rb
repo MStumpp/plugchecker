@@ -7,6 +7,7 @@ module Api
         type "fixed_price_tariff"
 
         attribute :name
+        attribute :url
         attribute_timestamp :valid_from
         attribute_timestamp :valid_to
       end

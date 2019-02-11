@@ -1,5 +1,6 @@
 ---
 provider: Energie Steiermark
+url: "https://www.e-steiermark.com/privat/leistungen/elektromobilitaet/"
 tariffs:
 - name: easyFLEX
   charge_card_id: 276
@@ -7,8 +8,8 @@ tariffs:
   - restrictions:
     - type: connector_speed
       value:
-      - 3.7kw
-      - 11kw
+      - 3.7
+      - 11
     decomposition:
     - type: linear
       price: 0.04
@@ -16,7 +17,7 @@ tariffs:
   - restrictions:
     - type: connector_speed
       value:
-      - 22kw
+      - 22
     decomposition:
     - type: linear
       price: 0.14
@@ -24,8 +25,8 @@ tariffs:
   - restrictions:
     - type: connector_speed
       value:
-      - 43kw
-      - 50kw
+      - 43
+      - 50
     decomposition:
     - type: linear
       price: 0.44
@@ -42,9 +43,9 @@ tariffs:
     - type: provider_customer
     - type: connector_speed
       value:
-      - 3.7kw
-      - 11kw
-      - 22kw
+      - 3.7
+      - 11
+      - 22
     decomposition:
     - type: constant
       price: 0
@@ -59,9 +60,9 @@ tariffs:
   - restrictions:
     - type: connector_speed
       value:
-      - 3.7kw
-      - 11kw
-      - 22kw
+      - 3.7
+      - 11
+      - 22
     decomposition:
     - type: constant
       price: 0
