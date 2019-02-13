@@ -19,6 +19,10 @@ class App < Sinatra::Base
     resource = ChargeCompare::UseCase::StationTariffs::Show.new(station_id: station_id).run
     Api::ResponseHandler::V1::StationTariffs::Show.new(resource).to_rack_response
   end
+
+  get '/check' do
+    "OK"
+  end
   
   set :show_exceptions, false
   set :raise_errors, false
