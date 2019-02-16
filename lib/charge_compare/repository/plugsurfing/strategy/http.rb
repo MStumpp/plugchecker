@@ -9,7 +9,8 @@ module ChargeCompare
         class Http
           MATCHING_RADIUS = 0.1
 
-          PROVIDER_NAME = "PlugSurfing"
+          PROVIDER_NAME = "Plugsurfing"
+          PROVIDER_URL = "https://www.plugsurfing.com"
 
           def where(station:)
             ps_station_id = fetch_matching_station_id(station)
@@ -22,23 +23,14 @@ module ChargeCompare
             lat = station.latitude
             lng = station.longitude
 
-            data = {
+            hash = request(
               "station-get-surface": {
-                "min-lat":  lat - MATCHING_RADIUS,
-                "max-lat":  lat + MATCHING_RADIUS,
-                "min-long": lng - MATCHING_RADIUS,
-                "max-long": lng + MATCHING_RADIUS
+                "min-lat":  lat - MATCHING_RADIUS, "max-lat":  lat + MATCHING_RADIUS,
+                "min-long": lng - MATCHING_RADIUS, "max-long": lng + MATCHING_RADIUS
               }
-            }
-
-            hash = request(data)
-            sorted_stations = hash[:stations].sort_by do |st|
-              (st[:latitude] - lat)**2 + (st[:longitude] - lng)**2
-            end
-
-            return if sorted_stations.empty?
-
-            sorted_stations.first[:id]
+            )
+            stations = sort_stations_by_distance(hash[:stations, lat, lng])
+            stations.any? ? stations.first[:id] : nil
           end
 
           def fetch_provider_station_details(station_id)
@@ -52,43 +44,8 @@ module ChargeCompare
               Model::TariffPrice.new(restrictions: restrictions, decomposition: parse_segments(c[:prices]))
             end
 
-            prices = prices.select { |p| p.decomposition.any? }
-
-            model = Model::FlexiblePriceTariff.new(
-              provider: PROVIDER_NAME,
-              url:      "https://www.plugsurfing.com",
-              valid_at: Time.now.utc,
-              prices:   prices.uniq
-            )
-
-            model.prices.any? ? [model] : []
-          end
-
-          def parse_segments(prices)
-            segments = []
-
-            return [] unless prices
-
-            constant_price = prices[:"starting-fee"].to_f
-            segments << Model::ConstantSegment.new(price: constant_price) if constant_price > 0
-
-            linear_time_price = (prices[:"parking-per-hour"].to_f + prices[:"charging-per-hour"].to_f) / 60.0
-            if linear_time_price > 0
-              segments << Model::ConstantSegment.new(
-                price:     linear_time_price,
-                dimension: "minute"
-              )
-            end
-
-            linear_energy_price = prices[:"charging-per-kwh"].to_f
-            if linear_energy_price > 0
-              segments << Model::ConstantSegment.new(
-                price:     linear_energy_price,
-                dimension: "kwh"
-              )
-            end
-
-            segments
+            prices = prices.select { |p| p.decomposition.any? }.uniq
+            prices.any? ? [new_model(prices)] : []
           end
 
           def request(data)
@@ -101,6 +58,48 @@ module ChargeCompare
             end
 
             JSON.parse(response.body, symbolize_names: true)
+          end
+
+          def sort_stations_by_distance(stations, lat, lng)
+            stations.sort_by do |st|
+              (st[:latitude] - lat)**2 + (st[:longitude] - lng)**2
+            end
+          end
+
+          def parse_segments(prices)
+            segments = []
+
+            return [] unless prices
+
+            constant_price = prices[:"starting-fee"].to_f
+            segments << Model::ConstantSegment.new(price: constant_price) if constant_price.positive?
+            segments << linear_time_segment(prices)
+            segments << linear_energy_price(prices)
+
+            segments.compact
+          end
+
+          def new_model(prices)
+            Model::FlexiblePriceTariff.new(
+              provider: PROVIDER_NAME,
+              url:      PROVIDER_URL,
+              valid_at: Time.now.utc,
+              prices:   prices
+            )
+          end
+
+          def linear_time_segment(prices)
+            linear_time_price = (prices[:"parking-per-hour"].to_f + prices[:"charging-per-hour"].to_f) / 60.0
+            return unless linear_time_price.positive?
+
+            Model::LinearSegment.new(price: linear_time_price, dimension: "minute")
+          end
+
+          def linear_energy_price(prices)
+            linear_energy_price = prices[:"charging-per-kwh"].to_f
+            return unless linear_energy_price.positive?
+
+            Model::LinearSegment.new(price: linear_energy_price, dimension: "kwh")
           end
         end
       end

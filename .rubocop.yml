@@ -1,1 +1,5 @@
 require: rt_rubocop_defaults
+
+AllCops:
+  Exclude:
+    - 'script.rb'

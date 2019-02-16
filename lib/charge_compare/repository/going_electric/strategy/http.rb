@@ -36,7 +36,7 @@ module ChargeCompare
             JSON.parse(response.body, symbolize_names: true)
           end
 
-          def to_model(hash)
+          def to_model(hash) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
             st = hash[:chargelocations].first
             Model::Station.new(
               id:                 st[:ge_id].to_s,

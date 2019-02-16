@@ -11,17 +11,20 @@ module ChargeCompare
 
           def where(station:)
             tariffs = station.charge_card_ids.map { |ccid| store[ccid] }.flatten.compact.uniq
-
-            tariffs.select do |t|
-              (!t.valid_to ||  t.valid_to > Time.now) &&
-                (!t.valid_from || t.valid_from < Time.now)
-            end
+            reject_outdated_tariffs(tariffs)
           end
 
           def load
             Dir[File.join(PROVIDER_CONFIG_LOCATION, "*.yml")].each do |file_path|
               hash = YAML.load_file(file_path)
               hash["tariffs"].each { |tariff| store_tariff(tariff, hash) }
+            end
+          end
+
+          def reject_outdated_tariffs(tariffs)
+            tariffs.select do |t|
+              (!t.valid_to ||  t.valid_to > Time.now) &&
+                (!t.valid_from || t.valid_from < Time.now)
             end
           end
 
@@ -37,8 +40,7 @@ module ChargeCompare
 
             charge_card_id = tariff["charge_card_id"].to_s
 
-            store[charge_card_id] ||= []
-            store[charge_card_id] << model
+            (store[charge_card_id] ||= []) << model
           end
 
           def load_tariff_price(tariff_price)
@@ -48,7 +50,7 @@ module ChargeCompare
             )
           end
 
-          def load_restriction(hash)
+          def load_restriction(hash) # rubocop:disable Metrics/MethodLength
             case hash["type"]
             when "region"
               Model::RegionRestriction.new(allowed_value: hash["value"])
@@ -70,10 +72,7 @@ module ChargeCompare
             when "linear"
               range = hash.fetch("range", [])
               Model::LinearSegment.new(
-                price:     hash["price"],
-                range_gte: range.first,
-                range_lt:  range.last,
-                dimension: hash["dimension"]
+                price: hash["price"], range_gte: range.first, range_lt: range.last, dimension: hash["dimension"]
               )
             end
           end
@@ -98,7 +97,9 @@ module ChargeCompare
             self.class.clear
           end
 
-          private def store
+          private
+
+          def store
             self.class.store
           end
         end

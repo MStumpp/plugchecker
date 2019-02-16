@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # Requires the Gemfile
-require "bundler"; Bundler.require
+require "bundler"
+Bundler.require
 
 ENV["ENVIRONMENT"] = "development"
 
