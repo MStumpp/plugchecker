@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "api/serializer/v1/tariff_base"
 
 module Api

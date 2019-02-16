@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 module Api
   module ResponseHandler
     class Error
-
       ERROR_MAPPING = {
         "Errors::RequestInvalid" => 400
-      }
+      }.freeze
 
       def initialize(error)
         @error = error
@@ -23,15 +24,15 @@ module Api
       end
 
       def headers
-       { 
-         "Content-Type" => "application/json",
-        "Access-Control-Allow-Origin" => "*" 
-      }
+        {
+          "Content-Type"                => "application/json",
+          "Access-Control-Allow-Origin" => "*"
+        }
       end
 
       def body
         data = {
-          error: status,
+          error:   status,
           message: error.message
         }
 

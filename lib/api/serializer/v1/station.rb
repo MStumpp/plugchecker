@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require "api/serializer/v1/base"
 
 module Api
   module Serializer
     module V1
       class Station < Base
-
         type "station"
 
         attribute :name

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "securerandom"
 require "api/serializer/v1/base"
 
@@ -9,16 +11,16 @@ module Api
         type { "tariff_price" }
 
         RESTRICTIONS_TYPE_MAPPING = {
-          "ChargeCompare::Model::ConnectorEnergyRestriction" => "connector_energy",
-          "ChargeCompare::Model::ConnectorSpeedRestriction" => "connector_speed",
-          "ChargeCompare::Model::RegionRestriction" => "region",
+          "ChargeCompare::Model::ConnectorEnergyRestriction"  => "connector_energy",
+          "ChargeCompare::Model::ConnectorSpeedRestriction"   => "connector_speed",
+          "ChargeCompare::Model::RegionRestriction"           => "region",
           "ChargeCompare::Model::ProviderCustomerRestriction" => "provider_customer"
-        }
+        }.freeze
 
         SEGMENT_TYPE_MAPPING = {
-          "ChargeCompare::Model::LinearSegment" => "linear",
+          "ChargeCompare::Model::LinearSegment"   => "linear",
           "ChargeCompare::Model::ConstantSegment" => "constant"
-        }
+        }.freeze
 
         attribute :restrictions do
           @object.restrictions.map do |res|

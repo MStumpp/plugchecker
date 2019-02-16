@@ -1,4 +1,6 @@
-require 'jsonapi/serializable'
+# frozen_string_literal: true
+
+require "jsonapi/serializable"
 require "api/serializer/v1/station_tariffs"
 require "api/serializer/v1/station"
 require "api/serializer/v1/fixed_price_tariff"
@@ -12,45 +14,45 @@ module Api
       module StationTariffs
         class Show
           SERIALIZER_MAPPING = {
-            "ChargeCompare::Model::StationTariffs": Api::Serializer::V1::StationTariffs,
-            "ChargeCompare::Model::Station": Api::Serializer::V1::Station,
-            "ChargeCompare::Model::FixedPriceTariff": Api::Serializer::V1::FixedPriceTariff,
+            "ChargeCompare::Model::StationTariffs":      Api::Serializer::V1::StationTariffs,
+            "ChargeCompare::Model::Station":             Api::Serializer::V1::Station,
+            "ChargeCompare::Model::FixedPriceTariff":    Api::Serializer::V1::FixedPriceTariff,
             "ChargeCompare::Model::FlexiblePriceTariff": Api::Serializer::V1::FlexiblePriceTariff,
-            "ChargeCompare::Model::TariffPrice": Api::Serializer::V1::TariffPrice,
-            "ChargeCompare::Model::Connector": Api::Serializer::V1::Connector
-          }
-    
+            "ChargeCompare::Model::TariffPrice":         Api::Serializer::V1::TariffPrice,
+            "ChargeCompare::Model::Connector":           Api::Serializer::V1::Connector
+          }.freeze
+
           def initialize(resource)
             @resource = resource
           end
-    
+
           def to_rack_response
             [status, headers, [body]]
           end
-    
+
           private
-    
+
           attr_reader :resource
-    
+
           def status
             200
           end
-    
+
           def headers
-           { 
-             "Content-Type" => "application/json",
-             "Access-Control-Allow-Origin" => "*"
+            {
+              "Content-Type"                => "application/json",
+              "Access-Control-Allow-Origin" => "*"
             }
           end
-    
+
           def body
             renderer = JSONAPI::Serializable::Renderer.new
             serialized_resource = renderer.render(
               resource,
-              class: SERIALIZER_MAPPING,
+              class:   SERIALIZER_MAPPING,
               include: [:station, :available_tariffs, available_tariffs: [:prices], station: [:connectors]]
             )
-    
+
             JSON.dump(serialized_resource)
           end
         end

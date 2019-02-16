@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require "types"
 require "charge_compare/model/connector"
@@ -5,7 +6,6 @@ require "charge_compare/model/connector"
 module ChargeCompare
   module Model
     class Station < Dry::Struct
-      
       attribute :id,               Types::Strict::String
       attribute :name,             Types::Strict::String
       attribute :longitude,        Types::Coercible::Float

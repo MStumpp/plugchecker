@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "charge_compare/repository/going_electric"
 require "charge_compare/repository/plugsurfing"
 require "charge_compare/repository/fixed_price_tariff"
@@ -7,15 +9,14 @@ module ChargeCompare
   module UseCase
     module StationTariffs
       class Show
-
         CHARGE_CARD_ID_MAPPING = {
           "7" => Repository::Plugsurfing,
           "8" => Repository::Plugsurfing
-        }
+        }.freeze
 
         attr_reader :station_id
 
-        def initialize(station_id: )
+        def initialize(station_id:)
           @station_id = station_id
         end
 
@@ -32,7 +33,7 @@ module ChargeCompare
         end
 
         def collect_tariffs(station)
-          collect_fixed_price_tariffs(station) +  collect_flexible_price_tariffs(station)          
+          collect_fixed_price_tariffs(station) + collect_flexible_price_tariffs(station)
         end
 
         def collect_fixed_price_tariffs(station)
@@ -43,6 +44,7 @@ module ChargeCompare
           station.charge_card_ids.map do |cc_id|
             repository = CHARGE_CARD_ID_MAPPING[cc_id]
             next unless repository
+
             repository.where(station: station)
           end.flatten.compact
         end

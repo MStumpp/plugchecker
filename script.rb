@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 require "pry"
 
 ENV["ENVIRONMENT"] = "development"
 
-require 'bundler' ; Bundler.require
+require "bundler"; Bundler.require
 
 require ::File.expand_path("../config/environment", __FILE__)
 
 # require "charge_compare/repository/fixed_price_tariff"
 # require "charge_compare/repository/plugsurfing"
 # require "charge_compare/repository/going_electric"
-#ChargeCompare::Repository::FixedPriceTariff.load
-
+# ChargeCompare::Repository::FixedPriceTariff.load
 
 # tariffs = ChargeComtarpare::Repository::Plugsurfing.where(station: station)
 # tariffs = ChargeCompare::Repository::GoingElectric.find_station(id: "26360")
@@ -40,7 +41,4 @@ res = ChargeCompare::UseCase::StationTariffs::Show.new(station_id: "30370").run
 #   p
 # end
 
-binding.pry
-
 a = 1
-

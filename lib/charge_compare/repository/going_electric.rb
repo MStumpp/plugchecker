@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require "receptacle"
 
@@ -9,7 +10,7 @@ module ChargeCompare
       include Receptacle::Repo
 
       mediate :find_station
-      
+
       strategy Strategy::Http
     end
   end

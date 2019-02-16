@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require "receptacle"
 
@@ -10,7 +11,7 @@ module ChargeCompare
 
       mediate :where
       mediate :load
-      
+
       strategy Strategy::InMemory
     end
   end

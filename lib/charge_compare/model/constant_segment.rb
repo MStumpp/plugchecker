@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 require "types"
 require "charge_compare/model/tariff_price_segment_base"

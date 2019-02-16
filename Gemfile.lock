@@ -9,6 +9,7 @@ GEM
     approvals (0.0.24)
       nokogiri (~> 1.6)
       thor (~> 0.18)
+    ast (2.4.0)
     coderay (1.1.2)
     concurrent-ruby (1.1.4)
     diff-lcs (1.3)
@@ -50,6 +51,7 @@ GEM
     i18n (1.5.1)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
+    jaro_winkler (1.5.2)
     json (2.1.0)
     jsonapi-deserializable (0.2.0)
     jsonapi-rb (0.5.0)
@@ -65,6 +67,10 @@ GEM
     mustermann (1.0.3)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
+    parallel (1.13.0)
+    parser (2.6.0.0)
+      ast (~> 2.4.0)
+    powerpack (0.1.2)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -73,6 +79,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rainbow (3.0.0)
     rake (12.3.2)
     receptacle (0.3.1)
     rspec (3.8.0)
@@ -88,7 +95,18 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rt_rubocop_defaults (1.0.1)
+      rubocop (~> 0.46)
+    rubocop (0.64.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.5, != 2.5.1.1)
+      powerpack (~> 0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (~> 1.4.0)
     rubocop_runner (2.1.0)
+    ruby-progressbar (1.10.0)
     sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -99,6 +117,7 @@ GEM
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    unicode-display_width (1.4.1)
 
 PLATFORMS
   ruby
@@ -117,6 +136,7 @@ DEPENDENCIES
   rake
   receptacle (~> 0.3.1)
   rspec
+  rt_rubocop_defaults
   rubocop_runner (~> 2.1)
   sinatra
 
