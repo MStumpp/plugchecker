@@ -23,7 +23,10 @@ module Api
       end
 
       def headers
-       { "Content-Type" => "application/json" }
+       { 
+         "Content-Type" => "application/json",
+        "Access-Control-Allow-Origin" => "*" 
+      }
       end
 
       def body

@@ -9,6 +9,7 @@ gem "dry-struct"
 gem 'receptacle', '~> 0.3.1'
 gem "json"
 gem "activesupport"
+gem 'rubocop_runner', '~> 2.1', require: false
 
 gem "rspec"
 gem "rack-test"
