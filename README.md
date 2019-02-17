@@ -35,7 +35,7 @@ More to come, but the following are already included:
   
     ```
     GOING_ELECTRIC_KEY= # See https://www.goingelectric.de/stromtankstellen/api/
-    PLUGSURFING_KEY=See https://www.plugsurfing.com/de/geschaeftskunden/ladestationsbetreiber.html
+    PLUGSURFING_KEY= # See https://www.plugsurfing.com/de/geschaeftskunden/ladestationsbetreiber.html
     ```
 5. Run service `rackup`
 
