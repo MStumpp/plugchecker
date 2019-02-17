@@ -4,8 +4,8 @@ require "charge_compare/model/tariff_price_restriction_base"
 
 module ChargeCompare
   module Model
-    class ConnectorEnergyRestriction < TariffPriceRestrictionBase
-      attribute :value, Types::ConnectorEnergy
+    class NetworkRestriction < TariffPriceRestrictionBase
+      attribute :value, Types::Strict::Array.of(Types::Strict::String)
     end
   end
 end

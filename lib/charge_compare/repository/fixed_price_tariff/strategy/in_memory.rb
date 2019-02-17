@@ -28,14 +28,17 @@ module ChargeCompare
             end
           end
 
-          def store_tariff(tariff, root)
+          def store_tariff(tariff, root) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
             model = Model::FixedPriceTariff.new(
-              name:       tariff["name"],
-              provider:   root["provider"],
-              url:        root["url"],
-              valid_to:   time_or_nil(tariff["valid_to"]),
-              valid_from: time_or_nil(tariff["valid_from"]),
-              prices:     tariff["prices"].map { |tp| load_tariff_price(tp) }
+              name:              tariff["name"],
+              provider:          root["provider"],
+              url:               root["url"],
+              valid_to:          time_or_nil(tariff["valid_to"]),
+              valid_from:        time_or_nil(tariff["valid_from"]),
+              prices:            tariff["prices"].map { |tp| load_tariff_price(tp) },
+              monthly_fee:       tariff["monthly_fee"] || 0,
+              monthly_min_sales: tariff["monthly_min_sales"] || 0,
+              is_flat_rate:      tariff["flat_rate"] || false
             )
 
             charge_card_id = tariff["charge_card_id"].to_s
@@ -50,16 +53,22 @@ module ChargeCompare
             )
           end
 
-          def load_restriction(hash) # rubocop:disable Metrics/MethodLength
+          def load_restriction(hash) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
+            allowance = hash["allowance"] || "allow"
+            value = hash["value"]
             case hash["type"]
             when "region"
-              Model::RegionRestriction.new(allowed_value: hash["value"])
+              Model::RegionRestriction.new(value: value, allowance: allowance)
             when "connector_speed"
-              Model::ConnectorSpeedRestriction.new(allowed_value: hash["value"].map(&:to_f))
+              Model::ConnectorSpeedRestriction.new(value: value.map(&:to_f), allowance: allowance)
             when "connector_energy"
-              Model::ConnectorEnergyRestriction.new(allowed_value: hash["value"])
+              Model::ConnectorEnergyRestriction.new(value: value, allowance: allowance)
             when "provider_customer"
               Model::ProviderCustomerRestriction.new
+            when "network"
+              Model::NetworkRestriction.new(value: value, allowance: allowance)
+            when "car_ac_phases"
+              Model::CarACPhasesRestriction.new(value: value.to_i, allowance: allowance)
             else
               raise ArgumentError.new("invalid type #{hash['type']}")
             end

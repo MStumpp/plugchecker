@@ -9,9 +9,13 @@ module ChargeCompare
   module UseCase
     module StationTariffs
       class Show
-        CHARGE_CARD_ID_MAPPING = {
+        CHARGE_CARD_REPO_MAPPING = {
           "7" => Repository::Plugsurfing,
           "8" => Repository::Plugsurfing
+        }.freeze
+
+        NETWORK_CHARGE_CARD_ID_MAPPING = {
+          "Tesla Supercharger" => "tesla"
         }.freeze
 
         attr_reader :station_id
@@ -37,16 +41,21 @@ module ChargeCompare
         end
 
         def collect_fixed_price_tariffs(station)
+          station = station.new(charge_card_ids: station.charge_card_ids + extra_ids(station))
           Repository::FixedPriceTariff.where(station: station)
         end
 
-        def collect_flexible_price_tariffs(station)
-          station.charge_card_ids.map do |cc_id|
-            repository = CHARGE_CARD_ID_MAPPING[cc_id]
-            next unless repository
+        def extra_ids(station)
+          cc_id = NETWORK_CHARGE_CARD_ID_MAPPING[station.network]
+          cc_id ? [cc_id] : []
+        end
 
-            repository.where(station: station)
-          end.flatten.compact
+        def collect_flexible_price_tariffs(station)
+          station.charge_card_ids
+                 .map { |cc_id| CHARGE_CARD_REPO_MAPPING[cc_id] }
+                 .compact.uniq
+                 .map { |r| r.where(station: station) }
+                 .flatten
         end
       end
     end

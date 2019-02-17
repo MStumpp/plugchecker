@@ -1,0 +1,31 @@
+---
+provider: Tesla
+url: "https://www.tesla.com/de_AT/support/supercharging"
+tariffs:
+- name: Tesla Supercharging
+  charge_card_id: tesla
+  prices:
+  - restrictions:
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.28
+      dimension: kwh
+  - restrictions:
+    - type: region
+      value:
+      - ch
+    decomposition:
+    - type: linear
+      price: 0.3
+      dimension: kwh
+  - restrictions:
+    - type: region
+      value:
+      - de
+    decomposition:
+    - type: linear
+      price: 0.4
+      dimension: kwh

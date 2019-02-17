@@ -1,0 +1,40 @@
+---
+provider: Wien Energie
+url: "https://www.tanke-wienenergie.at/tarifuebersicht/"
+tariffs:
+- name: Tanke Wien Energie
+  charge_card_id: 17
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.014
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.08
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.16
+      dimension: minute

@@ -29,7 +29,7 @@ module ChargeCompare
                 "min-long": lng - MATCHING_RADIUS, "max-long": lng + MATCHING_RADIUS
               }
             )
-            stations = sort_stations_by_distance(hash[:stations, lat, lng])
+            stations = sort_stations_by_distance(hash[:stations], lat, lng)
             stations.any? ? stations.first[:id] : nil
           end
 
@@ -38,7 +38,7 @@ module ChargeCompare
 
             prices = hash[:stations].first[:connectors].map do |c|
               restrictions = [
-                Model::ConnectorSpeedRestriction.new(allowed_value: [c[:speed].to_f])
+                Model::ConnectorSpeedRestriction.new(value: [c[:speed].to_f])
               ]
 
               Model::TariffPrice.new(restrictions: restrictions, decomposition: parse_segments(c[:prices]))

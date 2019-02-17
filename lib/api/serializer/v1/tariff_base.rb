@@ -11,6 +11,9 @@ module Api
 
         attribute :provider
         attribute :url
+        attribute :monthly_min_sales
+        attribute :monthly_fee
+        attribute :is_flat_rate
 
         has_many :prices do
           linkage always: true

@@ -14,7 +14,9 @@ module Api
           "ChargeCompare::Model::ConnectorEnergyRestriction"  => "connector_energy",
           "ChargeCompare::Model::ConnectorSpeedRestriction"   => "connector_speed",
           "ChargeCompare::Model::RegionRestriction"           => "region",
-          "ChargeCompare::Model::ProviderCustomerRestriction" => "provider_customer"
+          "ChargeCompare::Model::ProviderCustomerRestriction" => "provider_customer",
+          "ChargeCompare::Model::NetworkRestriction"          => "network",
+          "ChargeCompare::Model::CarACPhaseRestriction"       => "car_ac_phases"
         }.freeze
 
         SEGMENT_TYPE_MAPPING = {

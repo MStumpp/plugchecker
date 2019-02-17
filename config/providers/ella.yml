@@ -1,0 +1,37 @@
+---
+provider: ELLA
+url: "https://ella.at/e3-ella-lohnt-sich/"
+tariffs:
+- name: ELLA Ladekarte
+  charge_card_id: 22
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.29
+      dimension: kwh
+    - type: linear
+      price: 0.05
+      dimension: kwh
+      range: [720,null]
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.3
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    decomposition:
+    - type: linear
+      price: 0.15
+      dimension: minute

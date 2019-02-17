@@ -33,11 +33,8 @@ tariffs:
       dimension: minute
 - name: superFLAT
   charge_card_id: 276
-  base_fee_options:
-  - price: 27.9
-    period: month
-  - price: 299
-    period: year
+  monthly_fee: 27.9
+  flat_rate: true
   prices:
   - restrictions:
     - type: provider_customer
@@ -51,11 +48,8 @@ tariffs:
       price: 0
 - name: superFLAT
   charge_card_id: 276
-  base_fee:
-  - price: 29.9
-    period: month
-  - price: 329
-    period: year
+  monthly_fee: 29.9
+  flat_rate: true
   prices:
   - restrictions:
     - type: connector_speed
@@ -68,11 +62,8 @@ tariffs:
       price: 0
 - name: powerFLAT
   charge_card_id: 276
-  base_fee:
-  - price: 44.9
-    period: month
-  - price: 499
-    period: year
+  monthly_fee: 44.9
+  flat_rate: true
   prices:
   - restrictions:
     - type: provider_customer
@@ -81,11 +72,8 @@ tariffs:
       price: 0
 - name: powerFLAT
   charge_card_id: 276
-  base_fee:
-  - price: 49.9
-    period: month
-  - price: 549
-    period: year
+  monthly_fee: 49.9
+  flat_rate: true
   prices:
   - decomposition:
     - type: constant

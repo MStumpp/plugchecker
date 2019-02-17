@@ -1,0 +1,133 @@
+---
+provider: LINZ AG
+url: "https://www.linzag.at/portal/de/privatkunden/unterwegs/e_mobilitaet_1/unterwegs_laden/ladekarte"
+tariffs:
+- name: LINZ AG Ladekarte
+  charge_card_id: 231
+  monthly_min_sales: 6
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.016
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.079
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.182
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: region
+      value:
+      - at
+    decomposition:
+    - type: linear
+      price: 0.225
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: region
+      value:
+      - at
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.016
+      dimension: minute
+    - type: constant
+      price: 3
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: region
+      value:
+      - at
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+    - type: constant
+      price: 3
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: region
+      value:
+      - at
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.079
+      dimension: minute
+    - type: constant
+      price: 3
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: region
+      value:
+      - at
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.182
+      dimension: minute
+    - type: constant
+      price: 3
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: region
+      value:
+      - at
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.225
+      dimension: minute
+    - type: constant
+      price: 3

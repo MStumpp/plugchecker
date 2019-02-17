@@ -9,10 +9,12 @@ module Api
         type "station"
 
         attribute :name
+        attribute :network
         attribute :longitude
         attribute :latitude
         attribute :is_free_parking
         attribute :is_free_charging
+        attribute :price_description
         attribute :region
         attribute :going_electric_url
 
