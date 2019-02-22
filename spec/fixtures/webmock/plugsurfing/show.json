@@ -1,0 +1,247 @@
+{
+  "stations": [
+      {
+          "id": 137273,
+          "address": {
+              "street": "Gewerbestraße",
+              "streetNumber": "17",
+              "city": "Alkoven",
+              "zip": "4072",
+              "country": "Austria"
+          },
+          "contact": {
+              "email": null,
+              "web": "https://www.swarco.com/sta",
+              "phone": "436648528474",
+              "fax": null
+          },
+          "operator-company-id": 2819,
+          "operator-logo": null,
+          "floor-level": null,
+          "is-free-charge": false,
+          "last-static-change": "2018-11-29T15:37:01+01:00",
+          "last-dynamic-change": "2018-12-04T13:42:07+01:00",
+          "name": "OCC Ladestation AT04010010_1",
+          "description": null,
+          "latitude": 48.289453,
+          "longitude": 14.13117,
+          "open-hour-notes": [],
+          "total-parking": 0,
+          "notes": "",
+          "is-green-power-available": false,
+          "is-plugin-charge": false,
+          "is-roofed": false,
+          "is-reservable": false,
+          "has-dynamic-info": true,
+          "is-open-24": false,
+          "dynamic-status-summary": "AVAILABLE",
+          "is-validated": false,
+          "is-private": false,
+          "owner-company-id": null,
+          "service-providers": [
+              1337,
+              1339
+          ],
+          "connectors": [
+              {
+                  "id": 274907,
+                  "status": "AVAILABLE",
+                  "last-change": "2018-12-04T13:42:07+01:00",
+                  "name": "Type2",
+                  "speed": "11kW",
+                  "mode": "Mode3",
+                  "external-id": "AT*STA*EAT04010010*2",
+                  "prices": {
+                      "starting-fee": "0.00",
+                      "parking-per-hour": "10.45",
+                      "charging-per-hour": "0.00",
+                      "charging-per-kwh": "0.00",
+                      "currency": "EUR"
+                  },
+                  "tariff": {
+                      "currency": "EUR",
+                      "tariff_alt_url": null,
+                      "tariff_alt_text": null,
+                      "elements": [
+                          {
+                              "restrictions": {
+                                  "start_time": null,
+                                  "end_time": null,
+                                  "start_date": null,
+                                  "end_date": null,
+                                  "min_kwh": null,
+                                  "max_kwh": null,
+                                  "min_power": null,
+                                  "max_power": null,
+                                  "min_duration": null,
+                                  "max_duration": null,
+                                  "day_of_week": null
+                              },
+                              "price_components": [
+                                  {
+                                      "type": "FLAT",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "PARKING_TIME",
+                                      "price": "10.45",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "TIME",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "ENERGY",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  }
+                              ]
+                          }
+                      ],
+                      "energy_mix": {
+                          "is_green_energy": false,
+                          "energy_sources": null,
+                          "environ_impact": null,
+                          "supplier_name": null,
+                          "energy_product_name": null
+                      },
+                      "last_updated": "2019-02-22T19:26:43Z"
+                  },
+                  "rating-subscription": null
+              },
+              {
+                  "id": 274908,
+                  "status": "AVAILABLE",
+                  "last-change": "2018-12-04T13:42:07+01:00",
+                  "name": "Type2",
+                  "speed": "11kW",
+                  "mode": "Mode3",
+                  "external-id": "AT*STA*EAT04010010*1",
+                  "prices": {
+                      "starting-fee": "0.00",
+                      "parking-per-hour": "10.45",
+                      "charging-per-hour": "0.00",
+                      "charging-per-kwh": "0.00",
+                      "currency": "EUR"
+                  },
+                  "tariff": {
+                      "currency": "EUR",
+                      "tariff_alt_url": null,
+                      "tariff_alt_text": null,
+                      "elements": [
+                          {
+                              "restrictions": {
+                                  "start_time": null,
+                                  "end_time": null,
+                                  "start_date": null,
+                                  "end_date": null,
+                                  "min_kwh": null,
+                                  "max_kwh": null,
+                                  "min_power": null,
+                                  "max_power": null,
+                                  "min_duration": null,
+                                  "max_duration": null,
+                                  "day_of_week": null
+                              },
+                              "price_components": [
+                                  {
+                                      "type": "FLAT",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "PARKING_TIME",
+                                      "price": "10.45",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "TIME",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  },
+                                  {
+                                      "type": "ENERGY",
+                                      "price": "0.00",
+                                      "step_size": 1
+                                  }
+                              ]
+                          }
+                      ],
+                      "energy_mix": {
+                          "is_green_energy": false,
+                          "energy_sources": null,
+                          "environ_impact": null,
+                          "supplier_name": null,
+                          "energy_product_name": null
+                      },
+                      "last_updated": "2019-02-22T19:26:43Z"
+                  },
+                  "rating-subscription": null
+              }
+          ],
+          "prices": null
+      }
+  ],
+  "companies": [
+      {
+          "id": 1337,
+          "name": "PlugSurfing App",
+          "contact": {
+              "email": "service@plugsurfing.com ",
+              "web": "https://www.plugsurfing.com/",
+              "phone": null,
+              "fax": null
+          },
+          "address": {
+              "street": "Torgauerstr",
+              "streetNumber": null,
+              "city": "Berlin",
+              "zip": "10829",
+              "country": "Germany"
+          },
+          "description": null,
+          "type": null
+      },
+      {
+          "id": 1339,
+          "name": "PlugSurfing Charging Key",
+          "contact": {
+              "email": "service@plugsurfing.com ",
+              "web": "https://www.plugsurfing.com/",
+              "phone": null,
+              "fax": null
+          },
+          "address": {
+              "street": "Torgauerstr",
+              "streetNumber": null,
+              "city": "Berlin",
+              "zip": "10829",
+              "country": "Germany"
+          },
+          "description": null,
+          "type": null
+      },
+      {
+          "id": 2819,
+          "name": "Swarco Traffic Austria",
+          "contact": {
+              "email": null,
+              "web": "https://www.swarco.com/sta",
+              "phone": "+436648528474",
+              "fax": null
+          },
+          "address": {
+              "street": null,
+              "streetNumber": null,
+              "city": null,
+              "zip": null,
+              "country": "Austria"
+          },
+          "description": null,
+          "type": null
+      }
+  ]
+}

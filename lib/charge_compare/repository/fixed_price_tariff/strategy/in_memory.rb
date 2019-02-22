@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "charge_compare/model/fixed_price_tariff"
+require "yaml"
 
 module ChargeCompare
   module Repository

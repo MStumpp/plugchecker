@@ -1,0 +1,20 @@
+{
+    "stations": [
+        {
+            "id": 109657,
+            "name": "Eferding",
+            "latitude": 48.30792,
+            "longitude": 14.022961,
+            "dynamic_status_summary": "AVAILABLE",
+            "owner_type": null
+        },
+        {
+            "id": 137273,
+            "name": "OCC Ladestation AT04010010_1",
+            "latitude": 48.289453,
+            "longitude": 14.13117,
+            "dynamic_status_summary": "AVAILABLE",
+            "owner_type": null
+        }
+    ]
+}

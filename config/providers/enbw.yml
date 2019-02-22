@@ -1,6 +1,6 @@
 ---
 provider: EnBW
-url: "https://www.enbw.com/elektromobilitaet/produkte/mobilityplus-app/uebersicht"
+url: "https://www.enbw.com/elektromobilitaet/produkte/mobilityplus-app/laden-und-bezahlen"
 tariffs:
 - name: mobility+
   charge_card_id: 319
@@ -18,3 +18,40 @@ tariffs:
     decomposition:
     - type: constant
       price: 2
+- name: Standard
+  charge_card_id: 319
+  valid_from: 1551398400000
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.39
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.49
+- name: Viellader
+  charge_card_id: 319
+  valid_from: 1551398400000
+  monthly_fee: 4.99
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.29
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.39

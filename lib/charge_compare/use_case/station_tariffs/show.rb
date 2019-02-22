@@ -2,6 +2,7 @@
 
 require "charge_compare/repository/going_electric"
 require "charge_compare/repository/plugsurfing"
+require "charge_compare/repository/new_motion"
 require "charge_compare/repository/fixed_price_tariff"
 require "charge_compare/model/station_tariffs"
 
@@ -10,8 +11,9 @@ module ChargeCompare
     module StationTariffs
       class Show
         CHARGE_CARD_REPO_MAPPING = {
-          "7" => Repository::Plugsurfing,
-          "8" => Repository::Plugsurfing
+          "7"  => Repository::Plugsurfing,
+          "8"  => Repository::Plugsurfing,
+          "11" => Repository::NewMotion
         }.freeze
 
         NETWORK_CHARGE_CARD_ID_MAPPING = {

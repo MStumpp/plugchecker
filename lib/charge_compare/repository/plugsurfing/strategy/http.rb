@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require "charge_compare/model/flexible_price_tariff"
+require "faraday"
+require "haversine"
+require "errors"
 
 module ChargeCompare
   module Repository
@@ -8,18 +11,21 @@ module ChargeCompare
       module Strategy
         class Http
           MATCHING_RADIUS = 0.1
+          SAME_STATION_RADIUS = 15
 
           PROVIDER_NAME = "Plugsurfing"
           PROVIDER_URL = "https://www.plugsurfing.com"
 
           def where(station:)
-            ps_station_id = fetch_matching_station_id(station)
-            return [] unless ps_station_id
+            ps_station_ids = fetch_matching_station_ids(station)
+            return [] if ps_station_ids.empty?
 
-            fetch_provider_station_details(ps_station_id)
+            fetch_provider_station_details(ps_station_ids)
+          rescue Errors::ServiceUnavailable
+            []
           end
 
-          def fetch_matching_station_id(station)
+          def fetch_matching_station_ids(station)
             lat = station.latitude
             lng = station.longitude
 
@@ -29,14 +35,31 @@ module ChargeCompare
                 "min-long": lng - MATCHING_RADIUS, "max-long": lng + MATCHING_RADIUS
               }
             )
-            stations = sort_stations_by_distance(hash[:stations], lat, lng)
-            stations.any? ? stations.first[:id] : nil
+
+            valid_stations_by_distance(hash[:stations], lat, lng).map { |s| s[:id] }
           end
 
-          def fetch_provider_station_details(station_id)
-            hash = request("station-get-by-ids" => { "station-ids": [station_id] })
+          def valid_stations_by_distance(ps_stations, lat, lng)
+            return [] if ps_stations.empty?
 
-            prices = hash[:stations].first[:connectors].map do |c|
+            nearest = ps_stations.min_by { |s| distance(s, lat, lng) }
+
+            nearest_lat = nearest[:latitude]
+            nearest_lng = nearest[:longitude]
+
+            ps_stations.find_all { |s| distance(s, nearest_lat, nearest_lng) < SAME_STATION_RADIUS }
+          end
+
+          def distance(ps_station, lat, lng)
+            lat1 = ps_station[:latitude]
+            lng1 = ps_station[:longitude]
+            Haversine.distance(lat1, lng1, lat, lng).to_meters
+          end
+
+          def fetch_provider_station_details(ps_station_ids)
+            same_stations = find_same_stations(ps_station_ids)
+
+            prices = same_stations.map { |s| s[:connectors] }.flatten.map do |c|
               restrictions = [
                 Model::ConnectorSpeedRestriction.new(value: [c[:speed].to_f])
               ]
@@ -48,6 +71,13 @@ module ChargeCompare
             prices.any? ? [new_model(prices)] : []
           end
 
+          def find_same_stations(ps_station_ids)
+            station_details = request("station-get-by-ids" => { "station-ids": ps_station_ids })[:stations]
+            station_details.find_all do |sd|
+              sd[:"operator-company-id"] == station_details.first[:"operator-company-id"]
+            end
+          end
+
           def request(data)
             connection = Faraday.new("https://api.plugsurfing.com/api/v3/request")
 
@@ -57,13 +87,11 @@ module ChargeCompare
               req.body = JSON.dump(data)
             end
 
-            JSON.parse(response.body, symbolize_names: true)
-          end
+            raise Errors::ServiceUnavailable unless response.status == 200
 
-          def sort_stations_by_distance(stations, lat, lng)
-            stations.sort_by do |st|
-              (st[:latitude] - lat)**2 + (st[:longitude] - lng)**2
-            end
+            JSON.parse(response.body, symbolize_names: true)
+          rescue Faraday::Error
+            raise Errors::ServiceUnavailable
           end
 
           def parse_segments(prices)

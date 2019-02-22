@@ -1,0 +1,132 @@
+[
+  {
+      "coordinates": {
+          "latitude": 48.29269422727275,
+          "longitude": 14.291841136363633
+      },
+      "geoHash": "u2d4tp",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2602059_4",
+      "locationCount": 4,
+      "evseCount": 22
+  },
+  {
+      "coordinates": {
+          "latitude": 48.28098558333334,
+          "longitude": 14.308567666666667
+      },
+      "geoHash": "u2d4tt",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2539997_6",
+      "locationCount": 6,
+      "evseCount": 12
+  },
+  {
+      "coordinates": {
+          "latitude": 48.2899494,
+          "longitude": 14.3216126
+      },
+      "geoHash": "u2d4ty",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2542467_2",
+      "locationCount": 2,
+      "evseCount": 10
+  },
+  {
+      "coordinates": {
+          "latitude": 48.289453,
+          "longitude": 14.13117
+      },
+      "locationUid": 2599919,
+      "geoHash": "u2d49w",
+      "markerType": "SingleLocation",
+      "status": "Available",
+      "uniqueKey": "2599919_1",
+      "authorizationMethods": [
+          "NewMotionApp",
+          "RFIDToken"
+      ],
+      "evseCount": 2
+  },
+  {
+      "coordinates": {
+          "latitude": 48.30792,
+          "longitude": 14.022961
+      },
+      "locationUid": 2469729,
+      "geoHash": "u29fz4",
+      "markerType": "SingleLocation",
+      "status": "Available",
+      "uniqueKey": "2469729_1",
+      "authorizationMethods": [
+          "NewMotionApp",
+          "RFIDToken"
+      ],
+      "evseCount": 2
+  },
+  {
+      "coordinates": {
+          "latitude": 48.291189,
+          "longitude": 14.274952
+      },
+      "locationUid": 2471635,
+      "geoHash": "u2d4sz",
+      "markerType": "SingleLocation",
+      "status": "Available",
+      "uniqueKey": "2471635_1",
+      "authorizationMethods": [
+          "NewMotionApp",
+          "RFIDToken"
+      ],
+      "evseCount": 2
+  },
+  {
+      "coordinates": {
+          "latitude": 48.30420463636364,
+          "longitude": 14.286481818181814
+      },
+      "geoHash": "u2d4v1",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2556263_4",
+      "locationCount": 4,
+      "evseCount": 22
+  },
+  {
+      "coordinates": {
+          "latitude": 48.300658999999996,
+          "longitude": 14.2934056
+      },
+      "geoHash": "u2d4v2",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2468001_2",
+      "locationCount": 2,
+      "evseCount": 5
+  },
+  {
+      "coordinates": {
+          "latitude": 48.309093999999995,
+          "longitude": 14.282424999999998
+      },
+      "locationUid": 2467995,
+      "geoHash": "u2d4v4",
+      "markerType": "SingleLocation",
+      "status": "Available",
+      "uniqueKey": "2467995_1",
+      "authorizationMethods": [
+          "NewMotionApp",
+          "RFIDToken"
+      ],
+      "evseCount": 3
+  },
+  {
+      "coordinates": {
+          "latitude": 48.29935933333334,
+          "longitude": 14.306499333333333
+      },
+      "geoHash": "u2d4v8",
+      "markerType": "MultiLocation",
+      "uniqueKey": "2613260_2",
+      "locationCount": 2,
+      "evseCount": 6
+  }
+]

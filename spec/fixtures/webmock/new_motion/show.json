@@ -1,0 +1,127 @@
+{
+  "coordinates": {
+      "latitude": 48.289453,
+      "longitude": 14.13117
+  },
+  "externalId": "AT04010010",
+  "accessibility": {
+      "status": "Restricted"
+  },
+  "operatorName": "Swarco Traffic Austria",
+  "evses": [
+      {
+          "evseId": "AT*STA*EAT04010010*1",
+          "externalId": "AT*STA*EAT04010010*1",
+          "connectors": [
+              {
+                  "externalId": "0",
+                  "connectorType": "Type2",
+                  "tariff": {
+                      "perMinute": 0.16,
+                      "structure": "Default",
+                      "updated": "2019-02-21T10:51:22Z",
+                      "currency": "EUR",
+                      "updatedBy": "Default"
+                  },
+                  "updated": "2018-11-23T17:06:02Z",
+                  "electricalProperties": {
+                      "powerType": "AC3Phase",
+                      "voltage": 230,
+                      "amperage": 16
+                  },
+                  "uid": 1024052,
+                  "updatedBy": "Feed",
+                  "fixedCable": false
+              },
+              {
+                  "externalId": "1",
+                  "connectorType": "Unspecified",
+                  "tariff": {
+                      "perMinute": 0.16,
+                      "structure": "Default",
+                      "updated": "2019-02-21T10:51:22Z",
+                      "currency": "EUR",
+                      "updatedBy": "Default"
+                  },
+                  "updated": "2018-11-23T17:06:02Z",
+                  "electricalProperties": {
+                      "powerType": "AC1Phase",
+                      "voltage": 230,
+                      "amperage": 16
+                  },
+                  "uid": 1024053,
+                  "updatedBy": "Feed",
+                  "fixedCable": false
+              }
+          ],
+          "updated": "2018-12-04T12:42:14Z",
+          "status": "Available",
+          "authorizationMethods": [
+              "NewMotionApp",
+              "RFIDToken"
+          ],
+          "uid": 1101075
+      },
+      {
+          "evseId": "AT*STA*EAT04010010*2",
+          "externalId": "AT*STA*EAT04010010*2",
+          "connectors": [
+              {
+                  "externalId": "0",
+                  "connectorType": "Type2",
+                  "tariff": {
+                      "perMinute": 0.16,
+                      "structure": "Default",
+                      "updated": "2019-02-21T10:51:22Z",
+                      "currency": "EUR",
+                      "updatedBy": "Default"
+                  },
+                  "updated": "2018-11-23T17:06:02Z",
+                  "electricalProperties": {
+                      "powerType": "AC3Phase",
+                      "voltage": 230,
+                      "amperage": 16
+                  },
+                  "uid": 1024054,
+                  "updatedBy": "Feed",
+                  "fixedCable": false
+              },
+              {
+                  "externalId": "1",
+                  "connectorType": "Unspecified",
+                  "tariff": {
+                      "perMinute": 0.16,
+                      "structure": "Default",
+                      "updated": "2019-02-21T10:51:22Z",
+                      "currency": "EUR",
+                      "updatedBy": "Default"
+                  },
+                  "updated": "2018-11-23T17:06:02Z",
+                  "electricalProperties": {
+                      "powerType": "AC1Phase",
+                      "voltage": 230,
+                      "amperage": 16
+                  },
+                  "uid": 1024055,
+                  "updatedBy": "Feed",
+                  "fixedCable": false
+              }
+          ],
+          "updated": "2018-12-04T12:42:14Z",
+          "status": "Available",
+          "authorizationMethods": [
+              "NewMotionApp",
+              "RFIDToken"
+          ],
+          "uid": 1101076
+      }
+  ],
+  "updated": "2018-11-23T17:06:01Z",
+  "address": {
+      "streetAndNumber": "Gewerbestraße 17",
+      "postalCode": "4072",
+      "city": "Alkoven",
+      "country": "AUT"
+  },
+  "uid": 2599919
+}
