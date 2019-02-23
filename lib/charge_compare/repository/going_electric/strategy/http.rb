@@ -41,21 +41,21 @@ module ChargeCompare
             Model::Station.new(
               id:                 st[:ge_id].to_s,
               name:               st[:name],
-              network:            value_or_nil(st[:network]),
+              network:            value_or_fallback(st[:network]),
               longitude:          st[:coordinates][:lng],
               latitude:           st[:coordinates][:lat],
               is_free_charging:   st[:cost][:freecharging],
               is_free_parking:    st[:cost][:freeparking],
-              price_description:  value_or_nil(st[:cost][:description_long]),
+              price_description:  value_or_fallback(st[:cost][:description_long]),
               region:             REGION_MAPPING[st[:address][:country]],
-              charge_card_ids:    st[:chargecards].map { |cc| cc[:id].to_s },
+              charge_card_ids:    value_or_fallback(st[:chargecards], []).map { |cc| cc[:id].to_s },
               connectors:         st[:chargepoints].map { |cp| parse_connector(cp) },
               going_electric_url: "https:" + st[:url]
             )
           end
 
-          def value_or_nil(value)
-            value != false ? value : nil
+          def value_or_fallback(value, fallback = nil)
+            value != false ? value : fallback
           end
 
           def parse_connector(hash)

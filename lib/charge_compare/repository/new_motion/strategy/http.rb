@@ -2,20 +2,14 @@
 
 require "charge_compare/model/flexible_price_tariff"
 require "faraday"
-require "errors"
 require "haversine"
+require "charge_compare/repository/concerns/flexible_provider_base"
 
 module ChargeCompare
   module Repository
     module NewMotion
       module Strategy
-        class Http
-          MATCHING_RADIUS = 0.1
-          SAME_STATION_RADIUS = 15
-
-          PROVIDER_NAME = "New Motion"
-          PROVIDER_URL = "https://my.newmotion.com/"
-
+        class Http < Concerns::FlexibleProviderBase
           SPEED_MAPPING = {
             3680  => 3.7,
             11040 => 11,
@@ -23,14 +17,10 @@ module ChargeCompare
             43470 => 43
           }.freeze
 
-          def where(station:)
-            nm_station_ids = fetch_matching_station_ids(station)
-            return [] if nm_station_ids.empty?
-
-            fetch_provider_station_details(nm_station_ids)
-          rescue Errors::ServiceUnavailable
-            []
-          end
+          AC_PHASE_MAPPING = {
+            "AC1Phase" => 1,
+            "AC3Phase" => 3
+          }.freeze
 
           def fetch_matching_station_ids(station)
             lat = station.latitude
@@ -83,31 +73,28 @@ module ChargeCompare
             restrictions = [
               Model::ConnectorSpeedRestriction.new(value: speeds_with_special_speed_handling(speed))
             ]
-            decomposition = [
-              Model::LinearSegment.new(price: connector[:tariff][:perMinute], dimension: "minute")
-            ]
-            Model::TariffPrice.new(restrictions: restrictions, decomposition: decomposition)
+            segments = [minute_price_segment(connector), constant_price_segment(connector)]
+
+            Model::TariffPrice.new(restrictions: restrictions, decomposition: segments.compact)
           end
 
-          def new_model(prices)
-            Model::FlexiblePriceTariff.new(
-              provider: PROVIDER_NAME,
-              url:      PROVIDER_URL,
-              valid_at: Time.now.utc,
-              prices:   prices
-            )
+          def minute_price_segment(connector)
+            price = connector[:tariff][:perMinute]
+            return unless price
+
+            Model::LinearSegment.new(price: price, dimension: "minute")
           end
 
-          def parse_speed(elec_prop) # rubocop:disable Metrics/MethodLength
+          def constant_price_segment(connector)
+            price = connector[:tariff][:startFee]
+            return unless price
+
+            Model::ConstantSegment.new(price: price)
+          end
+
+          def parse_speed(elec_prop)
             speed = (elec_prop[:voltage] * elec_prop[:amperage])
-            phases = case (elec_prop[:powerType])
-                     when "AC1Phase"
-                       1
-                     when "AC3Phase"
-                       3
-                     else
-                       1
-                     end
+            phases = AC_PHASE_MAPPING[elec_prop[:powerType]] || 1
             total_speed = speed * phases
             SPEED_MAPPING[total_speed] || total_speed / 1000
           end
@@ -118,10 +105,15 @@ module ChargeCompare
             [150, 350]
           end
 
+          def model_defaults
+            {
+              provider: "New Motion",
+              url:      "https://my.newmotion.com/"
+            }
+          end
+
           def request(*args)
-            path = File.join(args.map(&:to_s))
-            connection = Faraday.new("https://my.newmotion.com")
-            response = connection.get path
+            response = Faraday.new("https://my.newmotion.com").get File.join(args.map(&:to_s))
             raise Errors::ServiceUnavailable unless response.status == 200
 
             JSON.parse(response.body, symbolize_names: true)

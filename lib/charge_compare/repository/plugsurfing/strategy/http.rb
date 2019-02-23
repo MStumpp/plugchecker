@@ -3,28 +3,13 @@
 require "charge_compare/model/flexible_price_tariff"
 require "faraday"
 require "haversine"
-require "errors"
+require "charge_compare/repository/concerns/flexible_provider_base"
 
 module ChargeCompare
   module Repository
     module Plugsurfing
       module Strategy
-        class Http
-          MATCHING_RADIUS = 0.1
-          SAME_STATION_RADIUS = 15
-
-          PROVIDER_NAME = "Plugsurfing"
-          PROVIDER_URL = "https://www.plugsurfing.com"
-
-          def where(station:)
-            ps_station_ids = fetch_matching_station_ids(station)
-            return [] if ps_station_ids.empty?
-
-            fetch_provider_station_details(ps_station_ids)
-          rescue Errors::ServiceUnavailable
-            []
-          end
-
+        class Http < Concerns::FlexibleProviderBase
           def fetch_matching_station_ids(station)
             lat = station.latitude
             lng = station.longitude
@@ -107,15 +92,6 @@ module ChargeCompare
             segments.compact
           end
 
-          def new_model(prices)
-            Model::FlexiblePriceTariff.new(
-              provider: PROVIDER_NAME,
-              url:      PROVIDER_URL,
-              valid_at: Time.now.utc,
-              prices:   prices
-            )
-          end
-
           def linear_time_segment(prices)
             linear_time_price = (prices[:"parking-per-hour"].to_f + prices[:"charging-per-hour"].to_f) / 60.0
             return unless linear_time_price.positive?
@@ -128,6 +104,13 @@ module ChargeCompare
             return unless linear_energy_price.positive?
 
             Model::LinearSegment.new(price: linear_energy_price, dimension: "kwh")
+          end
+
+          def model_defaults
+            {
+              provider: "Plugsurfing",
+              url:      "https://www.plugsurfing.com"
+            }
           end
         end
       end
