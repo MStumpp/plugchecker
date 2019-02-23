@@ -75,7 +75,9 @@ module ChargeCompare
             restrictions = [
               Model::ConnectorSpeedRestriction.new(value: speeds_with_special_speed_handling(speed))
             ]
-            segments = [minute_price_segment(connector), constant_price_segment(connector)]
+            segments = [
+              minute_price_segment(connector), kwh_price_segment(connector), constant_price_segment(connector)
+            ]
 
             Model::TariffPrice.new(restrictions: restrictions, decomposition: segments.compact)
           end
@@ -85,6 +87,13 @@ module ChargeCompare
             return unless price
 
             Model::LinearSegment.new(price: price, dimension: "minute")
+          end
+
+          def kwh_price_segment(connector)
+            price = connector[:tariff][:perKWh]
+            return unless price
+
+            Model::LinearSegment.new(price: price, dimension: "kwh")
           end
 
           def constant_price_segment(connector)

@@ -71,6 +71,7 @@
                   "connectorType": "Unspecified",
                   "tariff": {
                       "startFee": 12,
+                      "perKWh": 0.3,
                       "structure": "Default",
                       "updated": "2019-02-21T10:51:22Z",
                       "currency": "EUR",

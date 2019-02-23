@@ -24,7 +24,10 @@ describe ChargeCompare::Repository::NewMotion do
               },
               {
                 restrictions:  [build(:connector_speed_restriction, value: [3.7])],
-                decomposition: [build(:constant_segment, price: 12.0)]
+                decomposition: [
+                  build(:linear_segment, price: 0.3, dimension: "kwh"),
+                  build(:constant_segment, price: 12.0)
+                ]
               }
             ])
     end
