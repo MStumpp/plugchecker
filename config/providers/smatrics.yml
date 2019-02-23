@@ -1,6 +1,6 @@
 ---
 provider: Smatrics
-url: "https://ella.at/e3-ella-lohnt-sich/"
+url: "https://smatrics.com/ladenetz#tarife"
 tariffs:
 - name: Single Net
   charge_card_id: 156
