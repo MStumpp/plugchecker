@@ -25,6 +25,7 @@ More to come, but the following are already included:
 - Tesla Supercharging
 - Wien Energie
 - Plugsurfing
+- New Motion
 
 ## Setup
 
