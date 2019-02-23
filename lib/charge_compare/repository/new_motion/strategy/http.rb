@@ -58,7 +58,7 @@ module ChargeCompare
             same_stations = find_same_stations(nm_station_ids)
             all_connectors = same_stations.map { |sd| sd[:evses].map { |h| h[:connectors] } }.flatten
 
-            prices = all_connectors.map { |c| parse_prices_of_connector(c) }
+            prices = all_connectors.map { |c| parse_prices_of_connector(c) }.compact
             prices = prices.select { |p| p.decomposition.any? }.uniq
             prices.any? ? [new_model(prices)] : []
           end
@@ -69,6 +69,8 @@ module ChargeCompare
           end
 
           def parse_prices_of_connector(connector)
+            return unless connector[:tariff]
+
             speed = parse_speed(connector[:electricalProperties])
             restrictions = [
               Model::ConnectorSpeedRestriction.new(value: speeds_with_special_speed_handling(speed))

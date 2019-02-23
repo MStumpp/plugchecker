@@ -85,7 +85,20 @@
                   "uid": 1024055,
                   "updatedBy": "Feed",
                   "fixedCable": false
-              }
+              },
+              {
+                "externalId": "1",
+                "connectorType": "Unspecified",
+                "updated": "2018-11-23T17:06:02Z",
+                "electricalProperties": {
+                    "powerType": "AC1Phase",
+                    "voltage": 230,
+                    "amperage": 16
+                },
+                "uid": 1024055,
+                "updatedBy": "Feed",
+                "fixedCable": false
+            }
           ],
           "updated": "2018-12-04T12:42:14Z",
           "status": "Available",
