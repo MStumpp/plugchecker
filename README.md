@@ -26,6 +26,7 @@ More to come, but the following are already included:
 - Wien Energie
 - Plugsurfing
 - New Motion
+- Telekom Ladestrom
 
 ## Setup
 
