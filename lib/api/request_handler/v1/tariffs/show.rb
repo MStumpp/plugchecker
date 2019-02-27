@@ -28,7 +28,7 @@ module Api
               latitude:        Types::Strict::Float[attrs[:latitude]],
               longitude:       Types::Strict::Float[attrs[:longitude]],
               region:          Types::Region[attrs[:region]],
-              network:         Types::Strict::String[attrs[:network]],
+              network:         attrs[:network],
               charge_card_ids: parse_charge_card_ids(attrs),
               connectors:      parse_connectors(attrs)
             )

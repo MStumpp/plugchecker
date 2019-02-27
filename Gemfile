@@ -14,6 +14,7 @@ gem "multi_json"
 gem "rake"
 gem "receptacle", "~> 0.3.1"
 gem "sinatra", require: "sinatra"
+gem "sinatra-cross_origin"
 
 group :test, :development do
   gem "approvals"
