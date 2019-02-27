@@ -9,14 +9,21 @@ ENV["ENVIRONMENT"] = "development"
 require ::File.expand_path("../config/environment", __FILE__)
 
 require "sinatra/base"
-require "charge_compare/use_case/station_tariffs/show"
-require "api/response_handler/v1/station_tariffs/show"
+require "api/request_handler/v1/tariffs/show"
+require "charge_compare/use_case/tariffs/show"
+require "api/response_handler/v1/tariffs/show"
 require "api/response_handler/error"
 
 class App < Sinatra::Base
-  get "/v1/stations/:station_id/station_tariffs" do |station_id|
-    resource = ChargeCompare::UseCase::StationTariffs::Show.new(station_id: station_id).run
-    Api::ResponseHandler::V1::StationTariffs::Show.new(resource).to_rack_response
+  def parsed_request
+    request.params.merge!(params)
+    request
+  end
+
+  post "/v1/tariffs" do
+    request_dto = Api::RequestHandler::V1::Tariffs::Show.new(request: request).to_dto
+    resource = ChargeCompare::UseCase::Tariffs::Show.new(request: request_dto).run
+    Api::ResponseHandler::V1::Tariffs::Show.new(resource).to_rack_response
   end
 
   get "/check" do

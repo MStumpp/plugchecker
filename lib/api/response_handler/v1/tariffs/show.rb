@@ -2,7 +2,6 @@
 
 require "jsonapi/serializable"
 require "api/serializer/v1/station_tariffs"
-require "api/serializer/v1/station"
 require "api/serializer/v1/fixed_price_tariff"
 require "api/serializer/v1/flexible_price_tariff"
 require "api/serializer/v1/tariff_price"
@@ -11,11 +10,10 @@ require "api/serializer/v1/connector"
 module Api
   module ResponseHandler
     module V1
-      module StationTariffs
+      module Tariffs
         class Show
           SERIALIZER_MAPPING = {
             "ChargeCompare::Model::StationTariffs":      Api::Serializer::V1::StationTariffs,
-            "ChargeCompare::Model::Station":             Api::Serializer::V1::Station,
             "ChargeCompare::Model::FixedPriceTariff":    Api::Serializer::V1::FixedPriceTariff,
             "ChargeCompare::Model::FlexiblePriceTariff": Api::Serializer::V1::FlexiblePriceTariff,
             "ChargeCompare::Model::TariffPrice":         Api::Serializer::V1::TariffPrice,

@@ -17,6 +17,8 @@ ChargeCompareService = OpenStruct.new(
   )
 )
 
+require "multi_json"
+
 require "charge_compare/repository/fixed_price_tariff"
 
 ChargeCompare::Repository::FixedPriceTariff.load

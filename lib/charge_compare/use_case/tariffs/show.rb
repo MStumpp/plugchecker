@@ -5,10 +5,11 @@ require "charge_compare/repository/plugsurfing"
 require "charge_compare/repository/new_motion"
 require "charge_compare/repository/fixed_price_tariff"
 require "charge_compare/model/station_tariffs"
+require "ostruct"
 
 module ChargeCompare
   module UseCase
-    module StationTariffs
+    module Tariffs
       class Show
         CHARGE_CARD_REPO_MAPPING = {
           "7"  => Repository::Plugsurfing,
@@ -20,30 +21,26 @@ module ChargeCompare
           "Tesla Supercharger" => "tesla"
         }.freeze
 
-        attr_reader :station_id
+        attr_reader :request
 
-        def initialize(station_id:)
-          @station_id = station_id
+        def initialize(request:)
+          @request = request
         end
 
         def run
-          station = fetch_station_details
+          station = request.body
           available_tariffs = collect_tariffs(station)
-          Model::StationTariffs.new(station: station, available_tariffs: available_tariffs)
+          Model::StationTariffs.new(available_tariffs: available_tariffs)
         end
 
         private
-
-        def fetch_station_details
-          Repository::GoingElectric.find_station(id: station_id)
-        end
 
         def collect_tariffs(station)
           collect_fixed_price_tariffs(station) + collect_flexible_price_tariffs(station)
         end
 
         def collect_fixed_price_tariffs(station)
-          station = station.new(charge_card_ids: station.charge_card_ids + extra_ids(station))
+          station = OpenStruct.new(station.to_h.tap { |h| h[:charge_card_ids] << extra_ids(station) })
           Repository::FixedPriceTariff.where(station: station)
         end
 

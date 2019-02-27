@@ -1,0 +1,394 @@
+{
+  "data": {
+    "id": "<id>",
+    "type": "tariff",
+    "relationships": {
+      "available_tariffs": {
+        "data": [
+          {
+            "type": "fixed_price_tariff",
+            "id": "<id>"
+          },
+          {
+            "type": "fixed_price_tariff",
+            "id": "<id>"
+          }
+        ]
+      }
+    }
+  },
+  "included": [
+    {
+      "id": "<id>",
+      "type": "fixed_price_tariff",
+      "attributes": {
+        "provider": "Maingau Energie",
+        "url": "https://www.maingau-energie.de/e-mobilit%C3%A4t/autostrom-tarif",
+        "monthly_min_sales": 0.0,
+        "monthly_fee": 0.0,
+        "is_flat_rate": false,
+        "name": "EinfachStromLaden",
+        "valid_from": 1548979200000,
+        "valid_to": null
+      },
+      "relationships": {
+        "prices": {
+          "data": [
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "fixed_price_tariff",
+      "attributes": {
+        "provider": "Maingau Energie",
+        "url": "https://www.maingau-energie.de/e-mobilit%C3%A4t/autostrom-tarif",
+        "monthly_min_sales": 0.0,
+        "monthly_fee": 0.0,
+        "is_flat_rate": false,
+        "name": "EinfachStromLaden",
+        "valid_from": 1548979200000,
+        "valid_to": null
+      },
+      "relationships": {
+        "prices": {
+          "data": [
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            },
+            {
+              "type": "tariff_price",
+              "id": "<id>"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "ac",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "de",
+              "ch"
+            ],
+            "metric": "region"
+          },
+          {
+            "allowance": "allow",
+            "metric": "provider_customer"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.15,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 120,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "dc",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "de",
+              "ch"
+            ],
+            "metric": "region"
+          },
+          {
+            "allowance": "allow",
+            "metric": "provider_customer"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.15,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 120,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "ac",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "de",
+              "ch"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.25,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 120,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "dc",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "de",
+              "ch"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.25,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 60,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "ac",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "nl"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.3,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 120,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "dc",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "nl"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.3,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 60,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "ac",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "at"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.4,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 120,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    },
+    {
+      "id": "<id>",
+      "type": "tariff_price",
+      "attributes": {
+        "restrictions": [
+          {
+            "allowance": "allow",
+            "value": "dc",
+            "metric": "connector_energy"
+          },
+          {
+            "allowance": "allow",
+            "value": [
+              "at"
+            ],
+            "metric": "region"
+          }
+        ],
+        "decomposition": [
+          {
+            "price": 0.4,
+            "dimension": "kwh",
+            "range_gte": null,
+            "range_lt": null,
+            "degree": "linear"
+          },
+          {
+            "price": 0.1,
+            "dimension": "minute",
+            "range_gte": 60,
+            "range_lt": null,
+            "degree": "linear"
+          }
+        ]
+      }
+    }
+  ]
+}

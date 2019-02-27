@@ -8,7 +8,6 @@ require "charge_compare/model/flexible_price_tariff"
 module ChargeCompare
   module Model
     class StationTariffs < Dry::Struct
-      attribute :station, Station
       attribute :available_tariffs, Types::Array.of(TariffBase)
     end
   end
