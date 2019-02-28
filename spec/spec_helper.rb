@@ -6,6 +6,7 @@ require "pry"
 require "approvals/rspec"
 require_relative "../config/environment"
 require "timecop"
+require "rack/test"
 
 require File.expand_path("../config/environment.rb", __dir__)
 
@@ -53,4 +54,10 @@ RSpec.configure do |config|
   # inherited by the metadata hash of host groups and examples, rather than
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  Approvals.configure do |c|
+    c.excluded_json_keys = {
+      id: /(\A|_)id$/
+    }
+  end
 end

@@ -8,11 +8,7 @@ module Api
     module V1
       class StationTariffs < Base
         id { SecureRandom.uuid }
-        type "station_tariffs"
-
-        has_one :station do
-          linkage always: true
-        end
+        type "tariff"
 
         has_many :available_tariffs do
           linkage always: true
