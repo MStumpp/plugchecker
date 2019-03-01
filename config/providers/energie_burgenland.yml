@@ -59,6 +59,7 @@ tariffs:
       dimension: minute
 - name: TANKE Plus
   charge_card_id: 149
+  provider_customer_only: true
   prices:
   - restrictions:
     - type: connector_speed
@@ -67,7 +68,6 @@ tariffs:
     - type: network
       value:
       - Energie Burgenland
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.011
@@ -81,7 +81,6 @@ tariffs:
       - Energie Burgenland
     - type: car_ac_phases
       value: 3
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.033
@@ -95,7 +94,6 @@ tariffs:
       - Energie Burgenland
     - type: car_ac_phases
       value: 1
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.011
@@ -107,7 +105,6 @@ tariffs:
     - type: network
       value:
       - Energie Burgenland
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.066
@@ -119,7 +116,6 @@ tariffs:
     - type: network
       value:
       - Energie Burgenland
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.129
@@ -131,7 +127,6 @@ tariffs:
     - type: network
       value:
       - Energie Burgenland
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.15

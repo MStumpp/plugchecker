@@ -4,34 +4,11 @@ url: "https://www.maingau-energie.de/e-mobilit%C3%A4t/autostrom-tarif"
 tariffs:
 - name: EinfachStromLaden
   charge_card_id: 274
-  valid_to: 1548979200000
-  prices:
-  - restrictions:
-    - type: provider_customer
-    decomposition:
-    - type: linear
-      price: 0.02
-      dimension: minute
-- name: EinfachStromLaden
-  valid_to: 1548979200000
-  charge_card_id: 274
-  prices:
-  - decomposition:
-    - type: linear
-      price: 0.05
-      dimension: minute
-- name: EinfachStromLaden
-  charge_card_id: 274
-  valid_from: 1548979200000
+  provider_customer_only: true
   prices:
   - restrictions:
     - type: connector_energy
       value: ac
-    - type: region
-      value:
-      - de
-      - ch
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.15
@@ -45,11 +22,6 @@ tariffs:
   - restrictions:
     - type: connector_energy
       value: dc
-    - type: region
-      value:
-      - de
-      - ch
-    - type: provider_customer
     decomposition:
     - type: linear
       price: 0.15
@@ -61,7 +33,6 @@ tariffs:
       - 120
       - 
 - name: EinfachStromLaden
-  valid_from: 1548979200000
   charge_card_id: 274
   prices:
   - restrictions:

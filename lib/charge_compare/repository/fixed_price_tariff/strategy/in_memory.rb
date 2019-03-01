@@ -31,15 +31,16 @@ module ChargeCompare
 
           def store_tariff(tariff, root) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
             model = Model::FixedPriceTariff.new(
-              name:              tariff["name"],
-              provider:          root["provider"],
-              url:               root["url"],
-              valid_to:          time_or_nil(tariff["valid_to"]),
-              valid_from:        time_or_nil(tariff["valid_from"]),
-              prices:            tariff["prices"].map { |tp| load_tariff_price(tp) },
-              monthly_fee:       tariff["monthly_fee"] || 0,
-              monthly_min_sales: tariff["monthly_min_sales"] || 0,
-              is_flat_rate:      tariff["flat_rate"] || false
+              name:                   tariff["name"],
+              provider:               root["provider"],
+              url:                    root["url"],
+              valid_to:               time_or_nil(tariff["valid_to"]),
+              valid_from:             time_or_nil(tariff["valid_from"]),
+              prices:                 tariff["prices"].map { |tp| load_tariff_price(tp) },
+              monthly_fee:            tariff["monthly_fee"] || 0,
+              monthly_min_sales:      tariff["monthly_min_sales"] || 0,
+              is_flat_rate:           tariff["flat_rate"] || false,
+              provider_customer_only: tariff["provider_customer_only"] || false
             )
 
             charge_card_id = tariff["charge_card_id"].to_s
