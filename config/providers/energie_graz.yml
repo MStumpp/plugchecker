@@ -1,0 +1,50 @@
+---
+provider: Energie Graz
+url: "https://www.energie-graz.at/egg/energie-dienstleistungen/elektromobilitat/elektromobilitat-offentliches-laden/"
+tariffs:
+- name: GRAZdrivEflex
+  charge_card_id: 208
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.14
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.44
+      dimension: minute
+- name: GRAZdrivEfix
+  charge_card_id: 208
+  monthly_fee: 50
+  flat_rate: true
+  prices:
+  - restrictions:
+    decomposition:
+    - type: constant
+      price: 0
+- name: GRAZdrivEfix Kunden
+  charge_card_id: 208
+  monthly_fee: 45
+  flat_rate: true
+  provider_customer_only: true
+  prices:
+  - restrictions:
+    decomposition:
+    - type: constant
+      price: 0
