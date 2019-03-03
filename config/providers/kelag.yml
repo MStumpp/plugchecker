@@ -1,0 +1,550 @@
+---
+provider: Kelag
+url: "https://www.kelag.at/autostrom"
+tariffs:
+- name: Kelag Autostrom LIGHT
+  charge_card_id: 202
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0344
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0519
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - connector_energy
+      value: ac
+	- type: car_ac_phases
+      value: 3
+    decomposition:
+    - type: linear
+      price: 0.0864
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.2593
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.3457
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.6914
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.9507
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 350
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 1.5556
+      dimension: minute
+- name: Kelag Autostrom BASIC
+  charge_card_id: 202
+  monthly_fee: 5.4
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0399
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0864
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.1994
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+	  - 11
+	  - 22
+	- type: car_ac_phases
+      value: 1
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 25
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.1662
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.2659
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.5318
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.7313
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 350
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 1.1966
+      dimension: minute
+- name: Kelag Autostrom BASIC Kunden
+  charge_card_id: 202
+  provider_customer_only: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0399
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0864
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.1994
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+	  - 11
+	  - 22
+	- type: car_ac_phases
+      value: 1
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 25
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.1662
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.2659
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.5318
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.7313
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 350
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 1.1966
+      dimension: minute
+- name: Kelag Autostrom PLUS
+  charge_card_id: 202
+  monthly_fee: 50.4
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0132
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0199
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0332
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0997
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+	  - 11
+	  - 22
+	- type: car_ac_phases
+      value: 1
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 25
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.0831
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.1330
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.2659
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.3656
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 350
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.5983
+      dimension: minute
+- name: Kelag Autostrom PLUS Kunden
+  charge_card_id: 202
+  monthly_fee: 45
+  provider_customer_only: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0132
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0199
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0332
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+	- type: car_ac_phases
+      value: 3
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0997
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+	  - 11
+	  - 22
+	- type: car_ac_phases
+      value: 1
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.0265
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 25
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.0831
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.1330
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.2659
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.3656
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 350
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.5983
+      dimension: minute

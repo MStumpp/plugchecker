@@ -1,0 +1,371 @@
+---
+provider: Energie AG
+url: "https://www.energieag.at/Themen/Mobilitaet/Elektromobilitaet/PS-Energie-AG-Ladekarte"
+tariffs:
+- name: Power Flex
+  charge_card_id: 344
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.015
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.0317
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.065
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.2983
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.3317
+      dimension: minute
+- name: Power Flat 100
+  charge_card_id: 344
+  monthly_fee: 19.9
+  monthly_min_sales: 5
+  flat_rate: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    - charge_limit:
+      value: 100
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: constant
+      price: 0
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.2983
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.3317
+      dimension: minute
+- name: Power Flat 200
+  charge_card_id: 344
+  monthly_fee: 29.9
+  monthly_min_sales: 5
+  flat_rate: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    - charge_limit:
+      value: 200
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: constant
+      price: 0
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.2983
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.3317
+      dimension: minute
+- name: Power Flat 400
+  charge_card_id: 344
+  monthly_fee: 29.9
+  monthly_min_sales: 5
+  flat_rate: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    - charge_limit:
+      value: 400
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: constant
+      price: 0
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.2983
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+	- type: network
+      value:
+	  - Energie AG
+    decomposition:
+    - type: linear
+      price: 0.3317
+      dimension: minute
+- name: BEOE
+  charge_card_id: 344
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: connector_energy
+      value: ac
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.042
+      dimension: minute
+    - type: linear
+      price: 2.5
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: connector_energy
+      value: ac
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.048
+      dimension: minute
+    - type: linear
+      price: 2.9
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: connector_energy
+      value: ac
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.115
+      dimension: minute
+    - type: linear
+      price: 6.9
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: connector_energy
+      value: ac
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.44
+      dimension: minute
+    - type: linear
+      price: 26.4
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 25
+    - type: connector_energy
+      value: dc
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.15
+      dimension: minute
+    - type: linear
+      price: 9
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.44
+      dimension: minute
+    - type: linear
+      price: 26.4
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 100
+    - type: connector_energy
+      value: dc
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 0.79
+      dimension: minute
+    - type: linear
+      price: 47.4
+      dimension: hour
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 150
+    - type: connector_energy
+      value: dc
+    - type: region
+      value:
+      - at
+	- type: network
+      value:
+	  - BEOE
+    decomposition:
+    - type: linear
+      price: 1.25
+      dimension: minute
+    - type: linear
+      price: 75
+      dimension: hour

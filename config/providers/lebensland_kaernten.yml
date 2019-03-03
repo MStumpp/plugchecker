@@ -1,0 +1,16 @@
+---
+provider: Lebensland Kärnten
+url: "https://www.kelag.at/autostrom"
+tariffs:
+- name: Lebensland Kärnten
+  charge_card_id: 20
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+	- type: network
+      value:
+	  - Lebensland Kärnten
+    decomposition:
+    - type: constant
+      price: 0
