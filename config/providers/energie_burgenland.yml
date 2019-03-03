@@ -1,0 +1,191 @@
+---
+provider: Energie Burgenland
+url: "https://www.energieburgenland.at/privat/tarife/e-mobilitaet/tarife.html"
+tariffs:
+- name: TANKE
+  charge_card_id: 149
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.022
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: car_ac_phases
+      value: 3
+    decomposition:
+    - type: linear
+      price: 0.066
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: car_ac_phases
+      value: 1
+    decomposition:
+    - type: linear
+      price: 0.022
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.132
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    decomposition:
+    - type: linear
+      price: 0.258
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.3
+      dimension: minute
+- name: TANKE Plus
+  charge_card_id: 149
+  provider_customer_only: true
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.011
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: network
+      value:
+      - Energie Burgenland
+    - type: car_ac_phases
+      value: 3
+    decomposition:
+    - type: linear
+      price: 0.033
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: network
+      value:
+      - Energie Burgenland
+    - type: car_ac_phases
+      value: 1
+    decomposition:
+    - type: linear
+      price: 0.011
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.066
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.129
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.15
+      dimension: minute
+- name: DirectPay
+  charge_card_id: 149
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.029
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.073
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 22
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.139
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.288
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: network
+      value:
+      - Energie Burgenland
+    decomposition:
+    - type: linear
+      price: 0.33
+      dimension: minute

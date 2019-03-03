@@ -27,8 +27,9 @@
         "monthly_min_sales": 0.0,
         "monthly_fee": 0.0,
         "is_flat_rate": false,
+        "provider_customer_only": true,
         "name": "EinfachStromLaden",
-        "valid_from": 1548979200000,
+        "valid_from": null,
         "valid_to": null
       },
       "relationships": {
@@ -55,8 +56,9 @@
         "monthly_min_sales": 0.0,
         "monthly_fee": 0.0,
         "is_flat_rate": false,
+        "provider_customer_only": false,
         "name": "EinfachStromLaden",
-        "valid_from": 1548979200000,
+        "valid_from": null,
         "valid_to": null
       },
       "relationships": {
@@ -99,18 +101,6 @@
             "allowance": "allow",
             "value": "ac",
             "metric": "connector_energy"
-          },
-          {
-            "allowance": "allow",
-            "value": [
-              "de",
-              "ch"
-            ],
-            "metric": "region"
-          },
-          {
-            "allowance": "allow",
-            "metric": "provider_customer"
           }
         ],
         "decomposition": [
@@ -140,18 +130,6 @@
             "allowance": "allow",
             "value": "dc",
             "metric": "connector_energy"
-          },
-          {
-            "allowance": "allow",
-            "value": [
-              "de",
-              "ch"
-            ],
-            "metric": "region"
-          },
-          {
-            "allowance": "allow",
-            "metric": "provider_customer"
           }
         ],
         "decomposition": [
