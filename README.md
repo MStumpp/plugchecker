@@ -1,16 +1,8 @@
-# Charge Compare API
+# Plugcheccker API
 
 Provides prices of charging cards for EV charging stations.
 
-See [Charge Compare Client](https://github.com/hoenic07/charge-compare-client) for the Web Client.
-
-## API
-
-`GET  https://charge-compare.herokuapp.com/v1/stations/:station_id/station_tariffs`
-
-### Parameters
-
-- `station_id`: Id of the charging station from GoingElectric.de
+See [Plugchecker Client](https://github.com/hoenic07/plugchecker-client) for the Web Client.
 
 ## Supported Charging Card Providers
 
@@ -18,15 +10,17 @@ More to come, but the following are already included:
 
 - ELLA
 - EnBW
+- Energie Burgenland
 - Energie Steiermark
+- Kelag
 - Linz AG
 - Maingau Energie
+- New Motion
+- Plugsurfing
 - Smatrics
+- Telekom Ladestrom
 - Tesla Supercharging
 - Wien Energie
-- Plugsurfing
-- New Motion
-- Telekom Ladestrom
 
 ## Setup
 
@@ -36,7 +30,6 @@ More to come, but the following are already included:
 4. Create `config/.env.development` file with:
   
     ```
-    GOING_ELECTRIC_KEY= # See https://www.goingelectric.de/stromtankstellen/api/
     PLUGSURFING_KEY= # See https://www.plugsurfing.com/de/geschaeftskunden/ladestationsbetreiber.html
     ```
 5. Run service `rackup`
@@ -44,5 +37,5 @@ More to come, but the following are already included:
 
 ## Contribution
 
-Please contact me (nik.hoesl@hotmail.com).
+Please contact me (niklas@plugchecker.com).
 
