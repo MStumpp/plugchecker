@@ -20,6 +20,7 @@ More to come, but the following are already included:
 - Smatrics
 - Telekom Ladestrom
 - Tesla Supercharging
+- TIWAG
 - VKW
 - Wien Energie
 

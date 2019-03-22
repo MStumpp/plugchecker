@@ -1,0 +1,64 @@
+---
+provider: TIWAG
+url: "https://www.tiwag.at/nc/privatkunden/energieeffizienz/mobilitaet"
+tariffs:
+- name: TIWAG MOBIL
+  charge_card_id: 200
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    - type: connector_energy
+      value: ac
+    - type: network
+      value:
+      - TIWAG
+      - be.energised
+    decomposition:
+    - type: linear
+      price: 0.22
+      dimension: kwh
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    - type: network
+      value:
+      - TIWAG
+      - be.energised
+    decomposition:
+    - type: linear
+      price: 0.29
+      dimension: kwh
+- name: TIWAG MOBIL PLUS
+  charge_card_id: 200
+  provider_customer_only: true
+  monthly_fee: 5.9
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.22
+      dimension: kwh
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 50
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.29
+      dimension: kwh
