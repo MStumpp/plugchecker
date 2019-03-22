@@ -1,0 +1,234 @@
+---
+provider: VKW
+url: "https://www.vlotte.at/produkte.htm"
+tariffs:
+- name: VLOTTE Public Flatrate
+  charge_card_id: 83
+  monthly_fee: 29.9
+  flat_rate: true
+  yearly_service_fee: 24
+  provider_customer_only: true
+  prices:
+  - restrictions: []
+    decomposition:
+    - type: constant
+      price: 0
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+      range:
+      - 180
+      - 
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    - type: car_ac_phases
+      value: 3
+    decomposition:
+    - type: constant
+      price: 0
+    - type: linear
+      price: 0.11
+      dimension: minute
+      range:
+      - 180
+      - 
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    - type: car_ac_phases
+      value: 1
+    decomposition:
+    - type: constant
+      price: 0
+    - type: linear
+      price: 0.04
+      dimension: minute
+      range:
+      - 180
+      - 
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    decomposition:
+    - type: constant
+      price: 0
+    - type: linear
+      price: 0.30
+      dimension: minute
+      range:
+      - 45
+      - 
+- name: VLOTTE Public Flatrate
+  charge_card_id: 83
+  monthly_fee: 29.9
+  flat_rate: true
+  yearly_service_fee: 84
+  prices:
+  - restrictions: []
+    decomposition:
+    - type: constant
+      price: 0
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+      range:
+      - 180
+      - 
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    decomposition:
+    - type: constant
+      price: 0
+    - type: linear
+      price: 0.11
+      dimension: minute
+      range:
+      - 180
+      - 
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: constant
+      price: 0
+    - type: linear
+      price: 0.30
+      dimension: minute
+      range:
+      - 45
+      - 
+- name: VLOTTE Public PayPerUse
+  charge_card_id: 83
+  provider_customer_only: true
+  yearly_service_fee: 24
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    - type: car_ac_phases
+      value: 3
+    decomposition:
+    - type: linear
+      price: 0.11
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    - type: car_ac_phases
+      value: 1
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.30
+      dimension: minute
+- name: VLOTTE Public PayPerUse
+  charge_card_id: 83
+  yearly_service_fee: 84
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+    decomposition:
+    - type: linear
+      price: 0.04
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 11
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.11
+      dimension: minute
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.30
+      dimension: minute
+- name: VLOTTE Public direct
+  charge_card_id: 83
+  prices:
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 3.7
+      - 11
+      - 22
+    decomposition:
+    - type: linear
+      price: 0.11
+      dimension: minute
+      range:
+      - 0
+      - 120
+    - type: linear
+      price: 0.10167
+      dimension: minute
+      range:
+      - 120
+      -
+  - restrictions:
+    - type: connector_speed
+      value:
+      - 43
+      - 50
+    decomposition:
+    - type: linear
+      price: 0.44
+      dimension: minute
+      range:
+      - 0
+      - 20
+    - type: linear
+      price: 0.44
+      dimension: minute

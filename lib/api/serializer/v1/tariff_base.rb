@@ -12,7 +12,7 @@ module Api
         attribute :provider
         attribute :url
         attribute :monthly_min_sales
-        attribute :monthly_fee
+        attribute(:monthly_fee) { @object.total_monthly_fee }
         attribute :is_flat_rate
         attribute :provider_customer_only
 

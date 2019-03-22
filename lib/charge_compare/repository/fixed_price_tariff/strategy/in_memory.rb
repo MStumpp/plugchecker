@@ -39,6 +39,7 @@ module ChargeCompare
               prices:                 tariff["prices"].map { |tp| load_tariff_price(tp) },
               monthly_fee:            tariff["monthly_fee"] || 0,
               monthly_min_sales:      tariff["monthly_min_sales"] || 0,
+              yearly_service_fee:     tariff["yearly_service_fee"] || 0,
               is_flat_rate:           tariff["flat_rate"] || false,
               provider_customer_only: tariff["provider_customer_only"] || false
             )
