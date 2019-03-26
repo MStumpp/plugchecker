@@ -14,7 +14,7 @@ tariffs:
     - type: linear
       price: 0.02
       dimension: minute
-- name: Telekom Ladestrom
+- name: GET CHARGRE
   charge_card_id: 335
   valid_from: 1554076800000
   prices:
@@ -22,7 +22,66 @@ tariffs:
     - type: region
       value:
       - de
+    - type: network
+      value:
+      - allego
+      - Fastned
+      - innogy eRoaming
+      - Comfortcharge
+      - Bosch
+      - Digital Energy Solutions
+      - LastMileSolutions
+      - Stadtwerke Lindau
+      - ENIO
+      - Stadtwerke Halle
+      - be.energised
+    - type: connector_energy
+      value: ac
     decomposition:
     - type: linear
-      price: 0.04
-      dimension: minute
+      price: 0.29
+      dimension: kwh
+  - restrictions:
+    - type: region
+      value:
+      - de
+    - type: network
+      value:
+      - allego
+      - Fastned
+      - innogy eRoaming
+      - Comfortcharge
+      - Bosch
+      - Digital Energy Solutions
+      - LastMileSolutions
+      - Stadtwerke Lindau
+      - ENIO
+      - Stadtwerke Halle
+      - be.energised
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      price: 0.39
+      dimension: kwh
+    - type: region
+      value:
+      - de
+    - type: network
+      value:
+      - allego
+      - Fastned
+      - innogy eRoaming
+      - Comfortcharge
+      - Bosch
+      - Digital Energy Solutions
+      - LastMileSolutions
+      - Stadtwerke Lindau
+      - ENIO
+      - Stadtwerke Halle
+      - be.energised
+      allowance: deny
+    decomposition:
+    - type: linear
+      price: 0.89
+      dimension: kwh

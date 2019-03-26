@@ -12,11 +12,14 @@ More to come, but the following are already included:
 - EnBW
 - Energie Burgenland
 - Energie Steiermark
+- Hamburg Energie
 - Kelag
 - Linz AG
+- Innogy
 - Maingau Energie
 - New Motion
 - Plugsurfing
+- Rheinhessische
 - Smatrics
 - Telekom Ladestrom
 - Tesla Supercharging

@@ -1,0 +1,11 @@
+---
+provider: Hamburg Energie
+url: "http://www.hamburgenergie.de/geschaeftskunden/oekostrom/e-mobility/"
+tariffs:
+- name: HORIZONT MOBIL
+  charge_card_id: 31
+  prices:
+  - decomposition:
+    - type: linear
+      price: 0.295
+      dimension: kwh

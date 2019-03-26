@@ -1,0 +1,11 @@
+---
+provider: Rheinhessische
+url: "https://www.rheinhessische.de/fuer-unternehmen/energiedienstleistung/mobilitaet.html"
+tariffs:
+- name: Rheinhessische Ladekarte
+  charge_card_id: 261
+  prices:
+  - decomposition:
+    - type: linear
+      price: 0.30
+      dimension: kwh

@@ -1,0 +1,38 @@
+---
+provider: Innogy
+url: "https://www.innogy-emobility.com/Privat/produkte/unterwegs/app-echarge"
+tariffs:
+- name: ePower basic
+  charge_card_id: 5
+  monthly_fee: 4.95
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.30
+      dimension: kwh
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: constant
+      price: 6.95
+- name: ePower direct
+  charge_card_id: 5
+  monthly_fee: 4.95
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: linear
+      price: 0.39
+      dimension: kwh
+  - restrictions:
+    - type:  connector_energy
+      value: dc
+    decomposition:
+    - type: constant
+      price: 7.95
