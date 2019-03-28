@@ -23,6 +23,7 @@ tariffs:
     - type: connector_speed
       value:
       - 50
+      - 100
     decomposition:
     - type: linear
       price: 0.3

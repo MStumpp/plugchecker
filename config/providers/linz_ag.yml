@@ -54,6 +54,7 @@ tariffs:
     - type: connector_speed
       value:
       - 50
+      - 100
     - type: region
       value:
       - at
@@ -121,6 +122,7 @@ tariffs:
     - type: connector_speed
       value:
       - 50
+      - 100
     - type: region
       value:
       - at

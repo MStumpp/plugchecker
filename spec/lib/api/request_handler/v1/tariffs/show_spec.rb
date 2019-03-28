@@ -58,11 +58,6 @@ describe Api::RequestHandler::V1::Tariffs::Show do
       it_behaves_like "an error"
     end
 
-    context "invalid region" do
-      let(:region) { "test" }
-      it_behaves_like "an error"
-    end
-
     context "invalid string" do
       let(:some_string) { 1 }
       it_behaves_like "an error"

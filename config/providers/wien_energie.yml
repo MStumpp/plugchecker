@@ -34,6 +34,7 @@ tariffs:
       value:
       - 43
       - 50
+      - 100
     decomposition:
     - type: linear
       price: 0.16
