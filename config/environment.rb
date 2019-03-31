@@ -24,4 +24,4 @@ require "charge_compare/repository/application"
 
 ChargeCompare::Repository::FixedPriceTariff.load
 
-ChargeCompare::Repository::Application.load if env != "test"
+# ChargeCompare::Repository::Application.load if env != "test"
