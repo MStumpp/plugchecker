@@ -12,6 +12,7 @@ More to come, but the following are already included:
 - EnBW
 - Energie Burgenland
 - Energie Steiermark
+- E.ON
 - Hamburg Energie
 - Kelag
 - Linz AG

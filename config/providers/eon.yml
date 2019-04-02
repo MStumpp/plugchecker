@@ -1,0 +1,20 @@
+---
+provider: E.ON
+url: "https://www.eon.de/de/pk/e-mobility/unterwegs.html"
+tariffs:
+- name: Drive Easy
+  charge_card_id: 288
+  monthly_fee: 4.95
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    decomposition:
+    - type: constant
+      price: 5.95
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: constant
+      price: 8.95
