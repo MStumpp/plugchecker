@@ -1,0 +1,32 @@
+---
+provider: ADAC
+url: "https://www.adac.de/rund-ums-fahrzeug/e-mobilitaet/laden/adac-e-charge/"
+tariffs:
+- name: e-CHARGE
+  charge_card_id: 349
+  yearly_service_fee: 49.0
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    - type: region
+      value:
+      - de
+      - at
+      - ch
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.29
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    - type: region
+      value:
+      - de
+      - at
+      - ch
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.39

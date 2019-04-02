@@ -8,6 +8,7 @@ See [Plugchecker Client](https://github.com/hoenic07/plugchecker-client) for the
 
 More to come, but the following are already included:
 
+- ADAC
 - BEW
 - ELLA
 - EnBW

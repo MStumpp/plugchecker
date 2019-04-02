@@ -4,21 +4,15 @@ url: "https://www.bergische-energie.de/dienstleistungen/elektromobilitaet/lokals
 tariffs:
 - name: Lokalstrom mobil
   charge_card_id: 6
-  monthly_fee: 4.99
+  monthly_fee: 1.66
   prices:
   - restrictions: []
     decomposition:
     - type: linear
       dimension: kwh
-      price: 0
-      range:
-      - 0
-      - 15
-    - type: linear
-      dimension: kwh
       price: 0.2999
       range:
-      - 15
+      - 0
       - 50
     - type: linear
       dimension: kwh
