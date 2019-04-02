@@ -1,0 +1,34 @@
+---
+provider: BEW
+url: "https://www.bergische-energie.de/dienstleistungen/elektromobilitaet/lokalstrom-mobil/"
+tariffs:
+- name: Lokalstrom mobil
+  charge_card_id: 6
+  monthly_fee: 4.99
+  prices:
+  - restrictions: []
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0
+      range:
+      - 0
+      - 15
+    - type: linear
+      dimension: kwh
+      price: 0.2999
+      range:
+      - 15
+      - 50
+    - type: linear
+      dimension: kwh
+      price: 0.2799
+      range:
+      - 50
+      - 250
+    - type: linear
+      dimension: kwh
+      price: 0.2499
+      range:
+      - 250
+      - 
