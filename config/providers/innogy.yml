@@ -21,7 +21,6 @@ tariffs:
       price: 6.95
 - name: ePower direct
   charge_card_id: 5
-  monthly_fee: 4.95
   prices:
   - restrictions:
     - type: connector_energy
