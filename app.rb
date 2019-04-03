@@ -14,6 +14,7 @@ require "api/request_handler/v1/tariffs/show"
 require "charge_compare/use_case/tariffs/show"
 require "api/response_handler/v1/tariffs/show"
 require "api/response_handler/error"
+require "newrelic_rpm"
 
 class App < Sinatra::Base
   def parsed_request
