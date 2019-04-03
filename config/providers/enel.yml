@@ -1,0 +1,35 @@
+---
+provider: Enel
+url: "https://www.enelx.com/en/e-mobility/charging-services-description/private-customer"
+tariffs:
+- name: X Recharge
+  charge_card_id: 233
+  prices:
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    - type: connector_speed
+      value:
+      - 43
+      allowance: deny
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.45
+  - restrictions:
+    - type: connector_energy
+      value: ac
+    - type: connector_speed
+      value:
+      - 43
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.50
+  - restrictions:
+    - type: connector_energy
+      value: dc
+    decomposition:
+    - type: linear
+      dimension: kwh
+      price: 0.50

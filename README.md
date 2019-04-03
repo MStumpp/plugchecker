@@ -10,6 +10,7 @@ More to come, but the following are already included:
 
 - ADAC
 - BEW
+- Enel
 - ELLA
 - EnBW
 - Energie Burgenland
