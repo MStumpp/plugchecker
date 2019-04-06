@@ -3,7 +3,6 @@
 require "types"
 require "charge_compare/model/connector_energy_restriction"
 require "charge_compare/model/connector_speed_restriction"
-require "charge_compare/model/provider_customer_restriction"
 require "charge_compare/model/network_restriction"
 require "charge_compare/model/car_ac_phases_restriction"
 require "charge_compare/model/region_restriction"

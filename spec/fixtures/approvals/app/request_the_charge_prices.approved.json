@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "<id>",
+      "type": "charge_price",
+      "attributes": {
+        "provider": "Maingau Energie",
+        "tariff": "EinfachStromLaden",
+        "monthly_min_sales": 0.0,
+        "total_monthly_fee": 0.0,
+        "is_flat_rate": false,
+        "provider_customer_only": false,
+        "currency": "eur",
+        "charge_point_prices": [
+          {
+            "power": 22.0,
+            "plug": "CCS",
+            "price": 12.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -11,12 +11,11 @@ module Api
         type { "tariff_price" }
 
         RESTRICTIONS_TYPE_MAPPING = {
-          "ChargeCompare::Model::ConnectorEnergyRestriction"  => "connector_energy",
-          "ChargeCompare::Model::ConnectorSpeedRestriction"   => "connector_speed",
-          "ChargeCompare::Model::RegionRestriction"           => "region",
-          "ChargeCompare::Model::ProviderCustomerRestriction" => "provider_customer",
-          "ChargeCompare::Model::NetworkRestriction"          => "network",
-          "ChargeCompare::Model::CarACPhasesRestriction"      => "car_ac_phases"
+          "ChargeCompare::Model::ConnectorEnergyRestriction" => "connector_energy",
+          "ChargeCompare::Model::ConnectorSpeedRestriction"  => "connector_speed",
+          "ChargeCompare::Model::RegionRestriction"          => "region",
+          "ChargeCompare::Model::NetworkRestriction"         => "network",
+          "ChargeCompare::Model::CarACPhasesRestriction"     => "car_ac_phases"
         }.freeze
 
         SEGMENT_TYPE_MAPPING = {

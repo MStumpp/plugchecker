@@ -4,7 +4,8 @@ module Api
   module ResponseHandler
     class Error
       ERROR_MAPPING = {
-        "Errors::RequestInvalid" => 400
+        "Errors::RequestInvalid" => 400,
+        "Errors::Forbidden"      => 403
       }.freeze
 
       def initialize(error)
@@ -32,8 +33,12 @@ module Api
 
       def body
         data = {
-          error:   status,
-          message: error.message
+          errors: [
+            {
+              status: status.to_s,
+              title:  error.message
+            }
+          ]
         }
 
         JSON.dump(data)

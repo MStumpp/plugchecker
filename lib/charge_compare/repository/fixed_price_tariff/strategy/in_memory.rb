@@ -66,8 +66,6 @@ module ChargeCompare
               Model::ConnectorSpeedRestriction.new(value: value.map(&:to_f), allowance: allowance)
             when "connector_energy"
               Model::ConnectorEnergyRestriction.new(value: value, allowance: allowance)
-            when "provider_customer"
-              Model::ProviderCustomerRestriction.new
             when "network"
               Model::NetworkRestriction.new(value: value, allowance: allowance)
             when "car_ac_phases"

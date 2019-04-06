@@ -6,6 +6,12 @@ module ChargeCompare
   module Model
     class CarACPhasesRestriction < TariffPriceRestrictionBase
       attribute :value, Types::Strict::Integer
+
+      private
+
+      def value_match?(_connector, _station, options)
+        value == options.car_ac_phases
+      end
     end
   end
 end

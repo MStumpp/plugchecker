@@ -6,6 +6,12 @@ module ChargeCompare
   module Model
     class ConnectorEnergyRestriction < TariffPriceRestrictionBase
       attribute :value, Types::ConnectorEnergy
+
+      private
+
+      def value_match?(connector, _station, _options)
+        value == connector.energy
+      end
     end
   end
 end

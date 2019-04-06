@@ -38,7 +38,7 @@ module Api
 
           def headers
             {
-              "Content-Type"                => "application/json",
+              "Content-Type"                => "application/vnd.api+json",
               "Access-Control-Allow-Origin" => "*"
             }
           end

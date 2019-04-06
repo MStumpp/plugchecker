@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "charge_compare/model/flexible_price_tariff"
+require "charge_compare/model/fixed_price_tariff"
 
 FactoryBot.define do
-  factory :fixed_price_tariff, class: ChargeCompare::Model::FlexiblePriceTariff do
+  factory :fixed_price_tariff, class: ChargeCompare::Model::FixedPriceTariff do
     valid_from { Time.now.utc }
     valid_to { nil }
     name { "Standard" }

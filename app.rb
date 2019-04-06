@@ -10,9 +10,15 @@ require ::File.expand_path("../config/environment", __FILE__)
 
 require "sinatra/base"
 require "sinatra/cross_origin"
+
 require "api/request_handler/v1/tariffs/show"
 require "charge_compare/use_case/tariffs/show"
 require "api/response_handler/v1/tariffs/show"
+
+require "api/request_handler/v1/charge_prices/index"
+require "charge_compare/use_case/charge_prices/index"
+require "api/response_handler/v1/charge_prices/index"
+
 require "api/response_handler/error"
 require "newrelic_rpm"
 
@@ -30,6 +36,12 @@ class App < Sinatra::Base
     request_dto = Api::RequestHandler::V1::Tariffs::Show.new(request: request).to_dto
     resource = ChargeCompare::UseCase::Tariffs::Show.new(request: request_dto).run
     Api::ResponseHandler::V1::Tariffs::Show.new(resource).to_rack_response
+  end
+
+  post "/v1/charge_prices" do
+    request_dto = Api::RequestHandler::V1::ChargePrices::Index.new(request: request).to_dto
+    response_dto = ChargeCompare::UseCase::ChargePrices::Index.new(request_dto).run
+    Api::ResponseHandler::V1::ChargePrices::Index.new(response_dto.charge_prices).to_rack_response
   end
 
   options "*" do
