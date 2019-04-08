@@ -40,12 +40,12 @@ Here you can find the interface documention of the [Charge Prices API](../api/v1
 
 You will need to map the data of Going Electric to the following attributes in Plugchecker:
 
-| **Going Electric** | **Plugchecker**          | **Transformation** |
-| ------------------ | ------------------------ | ------------------ |
-| address.country    | station.country          | -                  |
-| network            | station.network          | false -> null      |
-| coordinates.lng    | station.longitude        | -                  |
-| coordinates.lat    | station.latitude         | -                  |
-| chargepoints.power | station.connectors.power | -                  |
-| chargepoints.type  | station.connectors.plug  | -                  |
-| chargecards.id     | charge_card_ids          | -                  |
+| **Going Electric** | **Plugchecker**             | **Transformation** |
+| ------------------ | --------------------------- | ------------------ |
+| address.country    | station.country             | -                  |
+| network            | station.network             | false -> null      |
+| coordinates.lng    | station.longitude           | -                  |
+| coordinates.lat    | station.latitude            | -                  |
+| chargepoints.power | station.charge_points.power | -                  |
+| chargepoints.type  | station.charge_points.plug  | -                  |
+| chargecards.id     | charge_card_ids             | -                  |
