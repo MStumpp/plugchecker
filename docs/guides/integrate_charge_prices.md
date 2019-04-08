@@ -32,7 +32,7 @@ At the moment the charging price calculation of Plugchecker depends on charging 
 
 In the future other providers of station data might be supported.
 
-Once your application can get `chargepoint` details, you can move on to step 2:
+Once your application can get `chargelocations` details, you can move on to step 2:
 
 ### 3. Map Going Electric API with Plugchecker API
 
