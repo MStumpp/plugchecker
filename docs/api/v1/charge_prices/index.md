@@ -73,7 +73,7 @@ Body:
         "latitude":   48.289453,
         "country":    "Deutschland",
         "network":    "Wien Energie",
-        "connectors": [
+        "charge_points": [
           {
             "power":  22,
             "plug":   "CCS"
