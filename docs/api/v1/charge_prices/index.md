@@ -71,7 +71,7 @@ Body:
       "station":         {
         "longitude":  14.13117,
         "latitude":   48.289453,
-        "country":    "Deutschland",
+        "country":    "Österreich",
         "network":    "Wien Energie",
         "charge_points": [
           {
